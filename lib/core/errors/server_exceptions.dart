@@ -11,6 +11,14 @@ class ServerExceptions extends BaseAppException {
           statusCode: statusCode,
         );
 
+  factory ServerExceptions.handle(dynamic e) {
+    if (e is DioException) {
+      return ServerExceptions.fromDiorError(e);
+    } else {
+      return ServerExceptions('Oops There was an Error, $e');
+    }
+  }
+
   factory ServerExceptions.fromDiorError(DioException e) {
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
@@ -50,6 +58,11 @@ class ServerExceptions extends BaseAppException {
       case DioExceptionType.unknown:
         return ServerExceptions(
           'Oops There was an Error, Please try again',
+          statusCode: e.response?.statusCode,
+        );
+      default:
+        return ServerExceptions(
+          'Oops There was an Error, ${e.message}',
           statusCode: e.response?.statusCode,
         );
     }
