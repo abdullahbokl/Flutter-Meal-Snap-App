@@ -5,6 +5,7 @@ import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password.dart';
 import '../../features/auth/presentation/screens/send_code_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
+import '../common/custom_error_page.dart';
 
 abstract class Routes {
   static const String intitlRoute = '/';
@@ -30,13 +31,9 @@ abstract class AppRoutes {
       case Routes.restPassword:
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
 
+      // 404
       default:
-        return MaterialPageRoute(
-            builder: (_) => const Scaffold(
-                  body: Center(
-                    child: Text('No Found Route'),
-                  ),
-                ));
+        return MaterialPageRoute(builder: (_) => const CustomErrorPage());
     }
   }
 }
