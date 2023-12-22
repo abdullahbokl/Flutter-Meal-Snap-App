@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../utils/app_navigator.dart';
+import '../../utils/app_navigator.dart';
 
 class CustomErrorPage extends StatelessWidget {
   const CustomErrorPage({super.key});

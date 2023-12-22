@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/utils/app_navigator.dart';
 import 'core/utils/app_routes.dart';
 
 class MyApp extends StatelessWidget {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
           ),
           onGenerateRoute: AppRoutes.generateRoute,
           initialRoute: Routes.intitlRoute,
+          navigatorKey: AppNavigator.navigatorKey,
         );
       },
     );

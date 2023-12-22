@@ -6,7 +6,7 @@ abstract class AppNavigator {
 
   static Future<dynamic> pushNamed(
     String routeName, {
-    required Object arguments,
+    Object? arguments,
   }) {
     return navigatorKey.currentState!.pushNamed(
       routeName,
@@ -16,7 +16,7 @@ abstract class AppNavigator {
 
   static Future<dynamic> pushReplacementNamed(
     String routeName, {
-    required Object arguments,
+    Object? arguments,
   }) {
     return navigatorKey.currentState!.pushReplacementNamed(
       routeName,
@@ -26,13 +26,18 @@ abstract class AppNavigator {
 
   static Future<dynamic> pushNamedAndRemoveUntil(
     String routeName, {
-    required Object arguments,
+    Object? arguments,
   }) {
     return navigatorKey.currentState!.pushNamedAndRemoveUntil(
       routeName,
       (Route<dynamic> route) => false,
       arguments: arguments,
     );
+  }
+
+  static removeAllAndPushNamed(String routeName) {
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
+    navigatorKey.currentState!.pushNamed(routeName);
   }
 
   static Future<dynamic> push(Widget page) {
@@ -53,11 +58,6 @@ abstract class AppNavigator {
 
   static void pop() {
     return navigatorKey.currentState!.pop();
-  }
-
-  static removeAllAndPushNamed(String routeName) {
-    navigatorKey.currentState!.popUntil((route) => route.isFirst);
-    navigatorKey.currentState!.pushNamed(routeName);
   }
 
   static removeAllAndPush(Widget page) {
