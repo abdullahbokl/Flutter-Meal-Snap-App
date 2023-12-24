@@ -2,14 +2,12 @@
 class AppAssets {
   AppAssets._();
 
-  static const String assetsTranslationsAr = 'assets/translations/ar.json';
-  static const String assetsTranslationsEn = 'assets/translations/en.json';
   static const String imagesBackround = 'assets/images/backround.png';
   static const String imagesBackroundTwo = 'assets/images/backround_two.png';
   static const String imagesImagePicker = 'assets/images/image_picker.png';
   static const String imagesLock = 'assets/images/lock.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesLogoSvg = 'assets/images/logo_svg.svg';
-  static const String translationsAr = 'assets/translations/ar.json';
-  static const String translationsEn = 'assets/translations/en.json';
+  static const String translationsAr = 'assets/translations/ar.arb';
+  static const String translationsEn = 'assets/translations/en.arb';
 }

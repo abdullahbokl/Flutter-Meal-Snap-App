@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
-asd() {}
-
 abstract class AppStyles {
+  /* Font Styles */
+
   static TextStyle fontStyle({
     required Color color,
     required double fontSize,
@@ -19,7 +19,7 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle small({
+  static TextStyle fontSmall({
     Color color = AppColors.white,
     double fontSize = 12,
   }) {
@@ -30,7 +30,7 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle regular({
+  static TextStyle fontRegular({
     Color color = AppColors.white,
     double fontSize = 16,
   }) {
@@ -41,7 +41,7 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle bold({
+  static TextStyle fontBold({
     Color color = AppColors.white,
     double fontSize = 24,
   }) {
@@ -52,7 +52,7 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle extraBold({
+  static TextStyle fontExtraBold({
     Color color = AppColors.white,
     double fontSize = 32,
   }) {
@@ -60,6 +60,30 @@ abstract class AppStyles {
       color: color,
       fontSize: fontSize,
       fontWeight: FontWeight.w900,
+    );
+  }
+
+  /* Button Styles */
+
+  static ButtonStyle buttonStyle({
+    Color backgroundColor = AppColors.primary,
+    Color foregroundColor = AppColors.white,
+    double elevation = 0,
+    double borderRadius = 8,
+    double padding = 4,
+  }) {
+    return ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(backgroundColor),
+      foregroundColor: MaterialStateProperty.all(foregroundColor),
+      elevation: MaterialStateProperty.all(elevation),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+      ),
+      padding: MaterialStateProperty.all(
+        EdgeInsets.all(padding),
+      ),
     );
   }
 }

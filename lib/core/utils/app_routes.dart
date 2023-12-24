@@ -9,38 +9,38 @@ import '../../features/home/presentation/screens/home_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 
 class Routes {
-  static const String intitlRoute = '/';
-  static const String changeLang = '/changeLang';
-  static const String login = '/login';
-  static const String sendCode = '/sendCode';
-  static const String restPassword = '/restPassword';
-  static const String menuHome = '/menuHome';
-  static const String addMeal = '/addMeal';
-  static const String profileHome = '/profileHome';
-  static const String updateProfile = '/updateProfile';
-  static const String setting = '/setting';
-  static const String changePassword = '/changePassword';
-  static const String home = '/home';
+  static const String initialRoute = '/';
+  static const String changeLangScreen = '/changeLangScreen';
+  static const String homeScreen = '/homeScreen';
+  static const String loginScreen = '/loginScreen';
+  static const String sendCodeScreen = '/sendCodeScreen';
+  static const String restPasswordScreen = '/restPasswordScreen';
+  static const String menuHomeScreen = '/menuHomeScreen';
+  static const String addMealScreen = '/addMealScreen';
+  static const String profileHomeScreen = '/profileHomeScreen';
+  static const String updateProfileScreen = '/updateProfileScreen';
+  static const String settingScreen = '/settingScreen';
+  static const String changePasswordScreen = '/changePasswordScreen';
 }
 
 class AppRoutes {
   static Route? generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case Routes.intitlRoute:
+      case Routes.initialRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
 
       // Auth
-      case Routes.changeLang:
+      case Routes.changeLangScreen:
         return MaterialPageRoute(builder: (_) => const ChangeLangScreen());
-      case Routes.login:
+      case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case Routes.sendCode:
+      case Routes.sendCodeScreen:
         return MaterialPageRoute(builder: (_) => const SendCodeScreen());
-      case Routes.restPassword:
+      case Routes.restPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
 
       // home
-      case Routes.home:
+      case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       // case Routes.menuHome:

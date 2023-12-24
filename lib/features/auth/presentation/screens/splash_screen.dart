@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/common/widgets/custom_image.dart';
-import '../../../../core/services/database_services/api/api_keys.dart';
 import '../../../../core/services/database_services/cache/cache_services.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -28,10 +27,10 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigateAfterThreeSeconds() {
-    Future.delayed(const Duration(seconds: 3333)).then((value) {
-      getIt<CacheServices>().getData(key: ApiKeys.token) == null
-          ? AppNavigator.pushNamed(Routes.login)
-          : AppNavigator.pushNamed(Routes.home);
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      getIt<CacheServices>().getData(key: AppStrings.apiToken) == null
+          ? AppNavigator.pushNamed(Routes.changeLangScreen)
+          : AppNavigator.pushNamed(Routes.homeScreen);
     });
   }
 
@@ -50,12 +49,17 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const Gap(10),
             Text(
-              AppStrings.mealSnap,
-              style: AppStyles.extraBold(),
+              "translate().app_appName",
+              style: AppStyles.fontExtraBold(),
             )
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

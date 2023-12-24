@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:meal_snap/core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../services/database_services/api/api_services.dart';
@@ -21,6 +22,9 @@ Future<void> initServiceLocator() async {
   getIt.registerLazySingleton<Dio>(() => initDio());
 
   // services
-  getIt.registerLazySingleton(() => CacheServices(getIt()));
+  getIt.registerLazySingleton<CacheServices>(() => CacheServices(getIt()));
   getIt.registerLazySingleton<ApiServices>(() => DioConsumer(getIt()));
+
+  // cubits
+  getIt.registerFactory<AppLangCubit>(() => AppLangCubit());
 }

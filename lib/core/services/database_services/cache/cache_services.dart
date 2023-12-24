@@ -28,7 +28,9 @@ class CacheServices {
       }
     } catch (e) {
       log(e.toString());
-      throw CacheExceptions(e.toString());
+      throw CacheExceptions(
+        'Error while saving data to shared preferences : $e',
+      );
     }
   }
 
@@ -37,7 +39,9 @@ class CacheServices {
       return _sharedPreferences.get(key);
     } catch (e) {
       log(e.toString());
-      throw CacheExceptions(e.toString());
+      throw CacheExceptions(
+        'Error while getting data from shared preferences : $e',
+      );
     }
   }
 
@@ -46,7 +50,9 @@ class CacheServices {
       await _sharedPreferences.remove(key);
     } catch (e) {
       log(e.toString());
-      throw CacheExceptions(e.toString());
+      throw CacheExceptions(
+        'Error while removing data from shared preferences : $e',
+      );
     }
   }
 
@@ -55,7 +61,9 @@ class CacheServices {
       await _sharedPreferences.clear();
     } catch (e) {
       log(e.toString());
-      throw CacheExceptions(e.toString());
+      throw CacheExceptions(
+        'Error while clearing data from shared preferences : $e',
+      );
     }
   }
 }

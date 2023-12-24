@@ -6,8 +6,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text('Login Screen'),
+      body: Center(
+        child: Text("translate().authentication_sendResetLink"),
       ),
     );
   }
