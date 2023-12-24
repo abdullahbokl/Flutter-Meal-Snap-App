@@ -27,21 +27,25 @@ class AppRoutes {
   static Route? generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case Routes.initialRoute:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
+        return MaterialPageRoute(
+            builder: (_) => SplashScreen(key: UniqueKey()));
 
       // Auth
       case Routes.changeLangScreen:
-        return MaterialPageRoute(builder: (_) => const ChangeLangScreen());
+        return MaterialPageRoute(
+            builder: (_) => ChangeLangScreen(key: UniqueKey()));
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(builder: (_) => LoginScreen(key: UniqueKey()));
       case Routes.sendCodeScreen:
-        return MaterialPageRoute(builder: (_) => const SendCodeScreen());
+        return MaterialPageRoute(
+            builder: (_) => SendCodeScreen(key: UniqueKey()));
       case Routes.restPasswordScreen:
-        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+        return MaterialPageRoute(
+            builder: (_) => ResetPasswordScreen(key: UniqueKey()));
 
       // home
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (_) => HomeScreen(key: UniqueKey()));
 
       // case Routes.menuHome:
       //   return MaterialPageRoute(builder: (_) => const MenuHomeScreen());

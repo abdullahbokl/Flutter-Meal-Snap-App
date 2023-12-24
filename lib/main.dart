@@ -4,6 +4,7 @@ import 'package:nested/nested.dart';
 
 import 'core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import 'core/blocs_cubits/bloc_observer.dart';
+import 'core/utils/app_constants.dart';
 import 'core/utils/service_locator.dart';
 import 'my_app.dart';
 
@@ -21,7 +22,7 @@ Future<void> main() async {
 List<SingleChildWidget> _providers() {
   return [
     BlocProvider<AppLangCubit>(
-      create: (context) => AppLangCubit()..getLocale(),
+      create: (context) => getIt<AppLangCubit>(),
     ),
   ];
 }
@@ -29,4 +30,5 @@ List<SingleChildWidget> _providers() {
 Future<void> _appInit() async {
   Bloc.observer = MyBlocObserver();
   await initServiceLocator();
+  AppConstants.appLocalizations = await getIt<AppLangCubit>().initAppLocale();
 }

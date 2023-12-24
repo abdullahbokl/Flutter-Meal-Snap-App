@@ -12,19 +12,22 @@ import '../services/database_services/cache/cache_services.dart';
 final getIt = GetIt.instance;
 
 Future<void> initServiceLocator() async {
-  // Shared Preferences
-  getIt.registerLazySingletonAsync<SharedPreferences>(
-      () async => await SharedPreferences.getInstance());
+  // Data sources
+  getIt
+    ..registerLazySingletonAsync<SharedPreferences>(
+        () async => await SharedPreferences.getInstance())
+    ..registerLazySingleton<Dio>(() => initDio());
+
+  // wait for the shared preferences to be registered
   await getIt.isReady<SharedPreferences>().catchError((e) {
     log("Error while registering SharedPreferences $e");
   });
-  // Dio
-  getIt.registerLazySingleton<Dio>(() => initDio());
 
   // services
-  getIt.registerLazySingleton<CacheServices>(() => CacheServices(getIt()));
-  getIt.registerLazySingleton<ApiServices>(() => DioConsumer(getIt()));
+  getIt
+    ..registerLazySingleton<CacheServices>(() => CacheServices(getIt()))
+    ..registerLazySingleton<ApiServices>(() => DioConsumer(getIt()));
 
   // cubits
-  getIt.registerFactory<AppLangCubit>(() => AppLangCubit());
+  getIt.registerLazySingleton<AppLangCubit>(() => AppLangCubit());
 }

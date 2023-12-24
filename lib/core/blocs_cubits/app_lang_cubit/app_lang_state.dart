@@ -1,7 +1,10 @@
 part of 'app_lang_cubit.dart';
 
 @immutable
-abstract class AppLangState {}
+abstract class AppLangState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
 final class AppLangInitialState extends AppLangState {}
 

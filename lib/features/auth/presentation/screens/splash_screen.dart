@@ -6,6 +6,7 @@ import '../../../../core/common/widgets/custom_image.dart';
 import '../../../../core/services/database_services/cache/cache_services.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_constants.dart';
 import '../../../../core/utils/app_navigator.dart';
 import '../../../../core/utils/app_routes.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -49,8 +50,8 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const Gap(10),
             Text(
-              "translate().app_appName",
-              style: AppStyles.fontExtraBold(),
+              translate().app_appName,
+              style: AppStyles.fontExtraLargeBold(),
             )
           ],
         ),

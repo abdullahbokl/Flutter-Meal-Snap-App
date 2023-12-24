@@ -19,46 +19,68 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle fontSmall({
+  static TextStyle fontExtraSmall({
     Color color = AppColors.white,
     double fontSize = 12,
   }) {
     return fontStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize.sp,
       fontWeight: FontWeight.w100,
     );
   }
 
-  static TextStyle fontRegular({
+  static TextStyle fontSmall({
     Color color = AppColors.white,
     double fontSize = 16,
   }) {
     return fontStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize.sp,
       fontWeight: FontWeight.w400,
     );
   }
 
-  static TextStyle fontBold({
+  static TextStyle fontMedium({
+    Color color = AppColors.white,
+    double fontSize = 20,
+  }) {
+    return fontStyle(
+      color: color,
+      fontSize: fontSize.sp,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle fontMediumBold({
+    Color color = AppColors.white,
+    double fontSize = 20,
+  }) {
+    return fontStyle(
+      color: color,
+      fontSize: fontSize.sp,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle fontLargeBold({
     Color color = AppColors.white,
     double fontSize = 24,
   }) {
     return fontStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize.sp,
       fontWeight: FontWeight.w700,
     );
   }
 
-  static TextStyle fontExtraBold({
+  static TextStyle fontExtraLargeBold({
     Color color = AppColors.white,
     double fontSize = 32,
   }) {
     return fontStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize.sp,
       fontWeight: FontWeight.w900,
     );
   }
