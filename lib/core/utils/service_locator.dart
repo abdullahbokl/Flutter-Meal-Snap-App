@@ -5,6 +5,8 @@ import 'package:get_it/get_it.dart';
 import 'package:meal_snap/core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../features/auth/data/repository/auth_repository.dart';
+import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
 import '../services/database_services/api/api_services.dart';
 import '../services/database_services/api/init_dio.dart';
 import '../services/database_services/cache/cache_services.dart';
@@ -28,6 +30,11 @@ Future<void> initServiceLocator() async {
     ..registerLazySingleton<CacheServices>(() => CacheServices(getIt()))
     ..registerLazySingleton<ApiServices>(() => DioConsumer(getIt()));
 
+  // repositories
+  getIt.registerLazySingleton<AuthRepoImpl>(() => AuthRepoImpl());
+
   // cubits
-  getIt.registerLazySingleton<AppLangCubit>(() => AppLangCubit());
+  getIt
+    ..registerLazySingleton<AppLangCubit>(() => AppLangCubit())
+    ..registerFactory(() => LoginCubit(getIt()));
 }

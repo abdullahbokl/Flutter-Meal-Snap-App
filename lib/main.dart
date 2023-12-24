@@ -6,6 +6,7 @@ import 'core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import 'core/blocs_cubits/bloc_observer.dart';
 import 'core/utils/app_constants.dart';
 import 'core/utils/service_locator.dart';
+import 'features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
 import 'my_app.dart';
 
 Future<void> main() async {
@@ -23,6 +24,9 @@ List<SingleChildWidget> _providers() {
   return [
     BlocProvider<AppLangCubit>(
       create: (context) => getIt<AppLangCubit>(),
+    ),
+    BlocProvider<LoginCubit>(
+      create: (context) => getIt<LoginCubit>(),
     ),
   ];
 }

@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
+import '../../../utils/app_strings.dart';
 import '../../../utils/service_locator.dart';
 import '../cache/cache_services.dart';
 import 'api_end_points.dart';
-import 'api_keys.dart';
 
 Dio initDio() {
   final dio = Dio(
@@ -37,8 +37,8 @@ class _ApiInterceptors extends Interceptor {
     log("Request Path: ${options.path}");
     log("Request Data: ${options.data}");
     log("Request Query Parameters: ${options.queryParameters}");
-    options.queryParameters[ApiKeys.token] =
-        getIt<CacheServices>().getData(key: ApiKeys.token);
+    options.queryParameters[AppStrings.apiToken] =
+        getIt<CacheServices>().getData(key: AppStrings.apiToken);
     super.onRequest(options, handler);
   }
 

@@ -16,4 +16,8 @@ abstract class AppStrings {
   static const String apiCategory = 'category';
   static const String apiMealImages = 'mealImages';
   static const String apiHowToSell = 'howToSell';
+
+  // shared preferences keys
+  static const String prefsId = 'id';
+  static const String prefsToken = 'token';
 }
