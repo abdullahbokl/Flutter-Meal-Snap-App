@@ -13,17 +13,17 @@ class SignUpModel {
 
   Map<String, dynamic> toJson() {
     return {
-      AppStrings.signUpName: name,
-      AppStrings.signUpEmail: email,
-      AppStrings.signUpPassword: password,
+      AppStrings.signUpModelName: name,
+      AppStrings.signUpModelEmail: email,
+      AppStrings.signUpModelPassword: password,
     };
   }
 
   factory SignUpModel.fromJson(Map<String, dynamic> json) {
     return SignUpModel(
-      name: json[AppStrings.signUpName],
-      email: json[AppStrings.signUpEmail],
-      password: json[AppStrings.signUpPassword],
+      name: json[AppStrings.signUpModelName],
+      email: json[AppStrings.signUpModelEmail],
+      password: json[AppStrings.signUpModelPassword],
     );
   }
 

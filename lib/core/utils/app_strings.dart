@@ -1,4 +1,22 @@
 abstract class AppStrings {
+  // API
+  static const String apiBaseUrl = 'https://api.spoonacular.com/recipes/';
+  static const String apiRandom = 'random';
+  static const String apiRecipes = 'recipes';
+  static const String apiEquipmentWidget = 'equipmentWidget.json?';
+  static const String apiNutritionWidget = '/nutritionWidget.json?';
+  static const String apiInformation = '/information?';
+  static const String apiSimilar = '/similar?';
+
+  // food types
+  static const String foodTypeBreakfast = 'breakfast';
+  static const String foodTypeLunch = 'lunch';
+  static const String foodTypeDrinks = 'drinks';
+  static const String foodTypePizza = 'pizza';
+  static const String foodTypeBurgers = 'burgers';
+  static const String foodTypeCake = 'cake';
+  static const String foodTypeRice = 'rice';
+
   // app write
   static const String appWriteEndPoint = "https://cloud.appwrite.io/v1";
   static const String appWriteEmail = 'email';
@@ -27,11 +45,19 @@ abstract class AppStrings {
   static const String prefsToken = 'token';
 
   // .env keys
+  static const String apiKey = 'API_KEY';
   static const String envAppWriteProjectId = 'APPWRITE_PROJECT_ID';
   static const String envAppWriteApiKey = 'APPWRITE_API_KEY';
 
   // sign up model
-  static const String signUpName = 'name';
-  static const String signUpEmail = 'email';
-  static const String signUpPassword = 'password';
+  static const String signUpModelName = 'name';
+  static const String signUpModelEmail = 'email';
+  static const String signUpModelPassword = 'password';
+
+  // food model
+  static const String foodModelId = 'id';
+  static const String foodModelName = 'title';
+  static const String foodModelImage = 'image';
+  static const String foodModelReadyInMinutes = 'readyInMinutes';
+  static const String foodModelServings = 'servings';
 }

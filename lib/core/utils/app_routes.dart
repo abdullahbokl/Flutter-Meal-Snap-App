@@ -7,7 +7,6 @@ import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/auth/presentation/screens/send_code_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
-import '../../features/home/presentation/screens/home_recipe_screen.dart';
 import '../../features/nav_bar/presentation/screens/nav_bar_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 import 'service_locator.dart';
@@ -61,8 +60,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
 
       // home
-      case Routes.homeRecipeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeRecipeScreen());
+      // case Routes.homeRecipeScreen:
+      //   return MaterialPageRoute(builder: (_) => const HomeRecipeScreen());
 
       // search
       case Routes.searchScreen:
