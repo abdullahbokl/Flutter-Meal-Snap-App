@@ -19,6 +19,7 @@ class CustomTextWidget extends StatelessWidget {
       text,
       style: style ?? AppStyles.fontSmall(),
       textDirection: AppConstants.appTextDirection,
+      textAlign: TextAlign.center,
     );
   }
 }

@@ -15,4 +15,6 @@ final class LoginErrorState extends LoginState {
 
 final class LoginSuccessState extends LoginState {}
 
-final class ChangeLoginPassIconVisibility extends LoginState {}
+final class LoginPassVisibilityState extends LoginState {
+  LoginPassVisibilityState();
+}

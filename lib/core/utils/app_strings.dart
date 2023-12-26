@@ -1,4 +1,9 @@
 abstract class AppStrings {
+  // app write
+  static const String appWriteEndPoint = "https://cloud.appwrite.io/v1";
+  static const String appWriteEmail = 'email';
+  static const String appWritePassword = 'password';
+
   // Shared Preferences Keys
   static const String keyNameAppLanguage = 'app_language';
 
@@ -20,4 +25,13 @@ abstract class AppStrings {
   // shared preferences keys
   static const String prefsId = 'id';
   static const String prefsToken = 'token';
+
+  // .env keys
+  static const String envAppWriteProjectId = 'APPWRITE_PROJECT_ID';
+  static const String envAppWriteApiKey = 'APPWRITE_API_KEY';
+
+  // sign up model
+  static const String signUpName = 'name';
+  static const String signUpEmail = 'email';
+  static const String signUpPassword = 'password';
 }

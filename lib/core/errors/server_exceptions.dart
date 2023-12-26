@@ -74,7 +74,7 @@ class ServerExceptions extends BaseAppException {
       case 401: // unauthorized
       case 403: // forbidden
         return ServerExceptions(
-          response['error']['message'],
+          "${response['ErrorMessage']}",
           statusCode: statusCode,
         );
       case 404: // notFound

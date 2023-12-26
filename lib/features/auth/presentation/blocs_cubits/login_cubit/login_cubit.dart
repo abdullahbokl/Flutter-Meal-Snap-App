@@ -1,38 +1,41 @@
-import 'package:bloc/bloc.dart';
+import 'package:appwrite/appwrite.dart';
+import 'package:appwrite/models.dart';
 import 'package:flutter/material.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
-import 'package:meal_snap/core/services/database_services/cache/cache_services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/services/database_services/cache/cache_services.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../../../../core/utils/service_locator.dart';
 import '../../../data/models/login_request_model.dart';
-import '../../../data/models/login_response_model.dart';
 import '../../../data/repository/auth_repository.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this.authRepo) : super(LoginInitial());
+  LoginCubit() : super(LoginInitial()) {
+    emailController.text = "moga672002@gmail.com";
+    passwordController.text = "aA123456!";
+  }
 
-  final AuthRepoImpl authRepo;
+  final authRepo = getIt<AuthRepo>();
 
   // Form keys and controllers
-  GlobalKey<FormState> loginKey = GlobalKey<FormState>(debugLabel: '3');
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   // password visibility
   bool _isLoginPassVisible = true;
 
   bool get isLoginPassVisible => _isLoginPassVisible;
 
-  set isLoginPassVisible(bool value) {
-    _isLoginPassVisible = value;
-    emit(ChangeLoginPassIconVisibility());
+  void changeIsLoginVisibility() {
+    _isLoginPassVisible = !_isLoginPassVisible;
+    emit(LoginPassVisibilityState());
   }
 
   // login method
-  LoginResponseModel? loginModel;
+  User? user;
 
   Future<void> login() async {
     emit(LoginLoadingState());
@@ -45,22 +48,27 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (l) => emit(LoginErrorState(l.message)),
       (r) async {
-        loginModel = r;
-        await _cacheLoginData(r);
+        user = r;
         emit(LoginSuccessState());
+        Future.microtask(() async {
+          await _cacheLoginData(r);
+        });
       },
     );
   }
 
-  Future<void> _cacheLoginData(LoginResponseModel r) async {
-    Map<String, dynamic> decodedToken = JwtDecoder.decode(r.token);
-    await getIt<CacheServices>().saveData(
-      key: AppStrings.prefsId,
-      value: decodedToken[AppStrings.prefsId],
-    );
+  Future<void> _cacheLoginData(User user) async {
+    // save token
+    final Account account = Account(getIt<Client>());
+    final Jwt userToken = await account.createJWT();
     await getIt<CacheServices>().saveData(
       key: AppStrings.prefsToken,
-      value: r.token,
+      value: userToken.jwt,
+    );
+    // save id
+    await getIt<CacheServices>().saveData(
+      key: AppStrings.prefsId,
+      value: user.$id,
     );
   }
 }

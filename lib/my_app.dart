@@ -16,27 +16,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, child) {
-        return BlocBuilder<AppLangCubit, AppLangState>(
-          builder: (context, state) {
-            return MaterialApp(
-              key: UniqueKey(),
-              title: translate().app_appName,
-              theme: ThemeData(
-                primarySwatch: Colors.blue,
-              ),
-              onGenerateRoute: AppRoutes.generateRoute,
-              initialRoute: Routes.initialRoute,
-              navigatorKey: AppNavigator.navigatorKey,
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              locale: Locale(
-                getIt<AppLangCubit>().currentLocale.name,
-              ),
-            );
-          },
-        );
-      },
+      child: BlocBuilder<AppLangCubit, AppLangState>(
+        buildWhen: (previous, current) {
+          return previous != current;
+        },
+        builder: (context, state) {
+          return MaterialApp(
+            title: translate().app_appName,
+            onGenerateRoute: AppRoutes.generateRoute,
+            navigatorKey: AppNavigator.navigatorKey,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: Locale(
+              getIt<AppLangCubit>().currentLocale.name,
+            ),
+          );
+        },
+      ),
     );
   }
 }

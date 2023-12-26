@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../../utils/app_colors.dart';
 
@@ -7,13 +8,14 @@ class CustomLoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator(
-        color: AppColors.primary,
-        backgroundColor: Colors.black12,
-        strokeWidth: 5.0,
-        strokeCap: StrokeCap.round,
-      ),
+    return SpinKitFadingCircle(
+      itemBuilder: (BuildContext context, int index) {
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            color: index.isEven ? AppColors.primary : AppColors.black12,
+          ),
+        );
+      },
     );
   }
 }

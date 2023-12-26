@@ -9,10 +9,12 @@ import '../../features/home/presentation/screens/home_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 
 class Routes {
-  static const String initialRoute = '/';
+  static const String initialRoute = '/a';
   static const String changeLangScreen = '/changeLangScreen';
   static const String homeScreen = '/homeScreen';
-  static const String loginScreen = '/loginScreen';
+
+  // static const String loginScreen = '/loginScreen';
+  static const String loginScreen = '/';
   static const String sendCodeScreen = '/sendCodeScreen';
   static const String restPasswordScreen = '/restPasswordScreen';
   static const String menuHomeScreen = '/menuHomeScreen';
@@ -27,25 +29,21 @@ class AppRoutes {
   static Route? generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case Routes.initialRoute:
-        return MaterialPageRoute(
-            builder: (_) => SplashScreen(key: UniqueKey()));
-
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       // Auth
       case Routes.changeLangScreen:
         return MaterialPageRoute(
             builder: (_) => ChangeLangScreen(key: UniqueKey()));
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => LoginScreen(key: UniqueKey()));
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.sendCodeScreen:
-        return MaterialPageRoute(
-            builder: (_) => SendCodeScreen(key: UniqueKey()));
+        return MaterialPageRoute(builder: (_) => const SendCodeScreen());
       case Routes.restPasswordScreen:
-        return MaterialPageRoute(
-            builder: (_) => ResetPasswordScreen(key: UniqueKey()));
+        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
 
       // home
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => HomeScreen(key: UniqueKey()));
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       // case Routes.menuHome:
       //   return MaterialPageRoute(builder: (_) => const MenuHomeScreen());

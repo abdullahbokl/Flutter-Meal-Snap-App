@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meal_snap/core/utils/app_constants.dart';
 
@@ -58,11 +58,9 @@ class AppLangCubit extends Cubit<AppLangState> {
     emit(AppLangLoadingState());
     currentLocale = languageCode;
     AppConstants.appLocalizations = await initAppLocale();
-    print(
-        "AppConstants.appLocalizations: ${AppConstants.appLocalizations.app_welcomeToAppName}");
     emit(AppLangSuccessState());
-    Future.microtask(() {
-      saveLocale();
+    Future.microtask(() async {
+      await saveLocale();
     });
     return currentLocale;
   }
