@@ -9,12 +9,11 @@ import '../../features/home/presentation/screens/home_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 
 class Routes {
-  static const String initialRoute = '/a';
+  static const String initialRoute = '/';
   static const String changeLangScreen = '/changeLangScreen';
   static const String homeScreen = '/homeScreen';
 
-  // static const String loginScreen = '/loginScreen';
-  static const String loginScreen = '/';
+  static const String loginScreen = '/loginScreen';
   static const String sendCodeScreen = '/sendCodeScreen';
   static const String restPasswordScreen = '/restPasswordScreen';
   static const String menuHomeScreen = '/menuHomeScreen';

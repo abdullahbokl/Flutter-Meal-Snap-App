@@ -54,7 +54,7 @@ Future<void> initServiceLocator() async {
     );
 
   // repositories
-  getIt.registerLazySingleton<AuthRepoImpl>(
+  getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImpl(getIt()),
   );
 

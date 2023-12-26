@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _navigateAfterThreeSeconds() {
     Future.delayed(const Duration(seconds: 3)).then((value) {
-      if (getIt<CacheServices>().getData(key: AppStrings.apiToken) == null) {
+      if (getIt<CacheServices>().getData(key: AppStrings.prefsToken) == null) {
         AppNavigator.pushReplacementNamed(Routes.loginScreen);
       } else {
         AppNavigator.pushReplacementNamed(Routes.homeScreen);

@@ -7,6 +7,7 @@ import 'core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import 'core/utils/app_constants.dart';
 import 'core/utils/app_navigator.dart';
 import 'core/utils/app_routes.dart';
+import 'core/utils/app_theme.dart';
 import 'core/utils/service_locator.dart';
 
 class MyApp extends StatelessWidget {
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
             locale: Locale(
               getIt<AppLangCubit>().currentLocale.name,
             ),
+            theme: AppTheme.themeData,
           );
         },
       ),
