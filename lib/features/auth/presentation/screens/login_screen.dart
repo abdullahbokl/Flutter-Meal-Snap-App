@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
               message: translate().authentication_loginSuccessfully,
               state: ToastStates.success,
             );
-            AppNavigator.pushReplacementNamed(Routes.homeScreen);
+            AppNavigator.pushReplacementNamed(Routes.homeRecipeScreen);
           } else if (state is LoginErrorState) {
             log("LoginErrorState: ${state.message}");
             AppConstants.showToast(

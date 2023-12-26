@@ -3,13 +3,14 @@ import 'dart:developer';
 import 'package:appwrite/appwrite.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:meal_snap/core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
-import 'package:meal_snap/core/services/database_services/api/app_write/app_write_init.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/repository/auth_repository.dart';
 import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
+import '../../features/nav_bar/presentation/blocs_cubits/nav_bar_cubit.dart';
+import '../blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import '../services/database_services/api/api_services.dart';
+import '../services/database_services/api/app_write/app_write_init.dart';
 import '../services/database_services/api/app_write/app_write_services.dart';
 import '../services/database_services/api/dio/auth_services.dart';
 import '../services/database_services/api/dio/dio_init.dart';
@@ -60,7 +61,12 @@ Future<void> initServiceLocator() async {
 
   // cubits
   getIt
-    ..registerLazySingleton<AppLangCubit>(() => AppLangCubit())
+    ..registerLazySingleton<AppLangCubit>(
+      () => AppLangCubit(),
+    )
+    ..registerLazySingleton<NavBarCubit>(
+      () => NavBarCubit(),
+    )
     ..registerLazySingleton<LoginCubit>(
       () => LoginCubit(),
     );

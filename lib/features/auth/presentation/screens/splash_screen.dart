@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (getIt<CacheServices>().getData(key: AppStrings.prefsToken) == null) {
         AppNavigator.pushReplacementNamed(Routes.loginScreen);
       } else {
-        AppNavigator.pushReplacementNamed(Routes.homeScreen);
+        AppNavigator.pushReplacementNamed(Routes.navBarScreen);
       }
     });
   }

@@ -38,6 +38,9 @@ dependencies:
   equatable: ^2.0.5
   appwrite: ^11.0.1
   flutter_dotenv: ^5.1.0
+  bottom_nav_bar:
+    git:
+      url: https://github.com/Ansh-Rathod/bottom_nav_bar
 
 dev_dependencies:
   flutter_test:

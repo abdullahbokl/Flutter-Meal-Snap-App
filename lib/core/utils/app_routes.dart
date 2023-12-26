@@ -1,64 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
 import '../../features/auth/presentation/screens/change_lang_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/auth/presentation/screens/send_code_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
-import '../../features/home/presentation/screens/home_screen.dart';
+import '../../features/home/presentation/screens/home_recipe_screen.dart';
+import '../../features/nav_bar/presentation/screens/nav_bar_screen.dart';
 import '../common/widgets/custom_error_page.dart';
+import 'service_locator.dart';
 
 class Routes {
+  // splash
   static const String initialRoute = '/';
   static const String changeLangScreen = '/changeLangScreen';
-  static const String homeScreen = '/homeScreen';
 
+  // auth
   static const String loginScreen = '/loginScreen';
   static const String sendCodeScreen = '/sendCodeScreen';
   static const String restPasswordScreen = '/restPasswordScreen';
-  static const String menuHomeScreen = '/menuHomeScreen';
-  static const String addMealScreen = '/addMealScreen';
-  static const String profileHomeScreen = '/profileHomeScreen';
-  static const String updateProfileScreen = '/updateProfileScreen';
-  static const String settingScreen = '/settingScreen';
-  static const String changePasswordScreen = '/changePasswordScreen';
+
+  // nav bar
+  static const String navBarScreen = '/navBarScreen';
+  static const String homeRecipeScreen = '/homeRecipeScreen';
+  static const String searchScreen = '/searchScreen';
+  static const String favoriteScreen = '/favoriteScreen';
+  static const String moreScreen = '/moreScreen';
 }
 
 class AppRoutes {
   static Route? generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
+      // splash
       case Routes.initialRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
-      // Auth
       case Routes.changeLangScreen:
         return MaterialPageRoute(
-            builder: (_) => ChangeLangScreen(key: UniqueKey()));
+          builder: (_) => ChangeLangScreen(key: UniqueKey()),
+        );
+
+      // nav bar
+      case Routes.navBarScreen:
+        return MaterialPageRoute(
+          builder: (_) => const NavBarScreen(),
+        );
+
+      // auth
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
       case Routes.sendCodeScreen:
         return MaterialPageRoute(builder: (_) => const SendCodeScreen());
       case Routes.restPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
 
       // home
-      case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case Routes.homeRecipeScreen:
+        return MaterialPageRoute(builder: (_) => const HomeRecipeScreen());
 
-      // case Routes.menuHome:
-      //   return MaterialPageRoute(builder: (_) => const MenuHomeScreen());
-      // case Routes.addMeal:
-      //   return MaterialPageRoute(builder: (_) => const AddMealScreen());
-      //
-      // case Routes.profileHome:
-      //   return MaterialPageRoute(builder: (_) => const ProfileScreen());
-      // case Routes.updateProfile:
-      //   return MaterialPageRoute(builder: (_) => const UpdateProfileScreen());
-      // case Routes.setting:
-      //   return MaterialPageRoute(builder: (_) => const SettingsScreen());
-      // case Routes.changePassword:
-      //   return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
-      //
-
+      // search
+      case Routes.searchScreen:
       // 404
       default:
         return MaterialPageRoute(builder: (_) => const CustomErrorPage());
