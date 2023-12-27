@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../favorite_screen/presentation/screens/favorite_screen.dart';
-import '../../../home/presentation/screens/home_recipe_screen.dart';
+import '../../../home/presentation/screens/home_screen.dart';
 import '../../../more/presentation/screens/more_screen.dart';
 import '../../../search/presentation/screens/search_screen.dart';
 
@@ -16,7 +16,7 @@ class NavBarCubit extends Cubit<NavBarState> {
   final persistentTabController = PersistentTabController(initialIndex: 0);
 
   final List<Widget> nabBarScreens = [
-    const HomeRecipeScreen(),
+    const HomeScreen(),
     const SearchScreen(),
     const FavoriteScreen(),
     const MoreScreen(),

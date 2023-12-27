@@ -3,11 +3,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/base_app_exception.dart';
 import '../../../../core/errors/server_exceptions.dart';
-import '../../../../core/services/database_services/api/api_end_points.dart';
-import '../../../../core/services/database_services/api/api_services.dart';
 import '../../../../core/services/database_services/api/dio/auth_services.dart';
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/service_locator.dart';
 import '../models/login_request_model.dart';
 import '../models/reset_password_model.dart';
 import '../models/signup_model.dart';
@@ -67,31 +63,15 @@ class AuthRepoImpl implements AuthRepo {
   Future<Either<BaseAppException, String>> sendCode({
     required String email,
   }) async {
-    try {
-      final response = await getIt<ApiServices>().post(
-        ApiEndPoints.sendCode,
-        data: {
-          AppStrings.apiEmail: email,
-        },
-      );
-      return Right(response[AppStrings.apiMessage]);
-    } on ServerExceptions catch (error) {
-      return Left(error);
-    }
+    // Todo: implement sendCode
+    throw UnimplementedError();
   }
 
   @override
   Future<Either<BaseAppException, String>> resetPassword({
     required ResetPasswordModel resetPasswordModel,
   }) async {
-    try {
-      final response = await getIt<ApiServices>().patch(
-        ApiEndPoints.changeForgottenPassword,
-        data: resetPasswordModel.toJson(),
-      );
-      return Right(response[AppStrings.apiMessage]);
-    } on ServerExceptions catch (error) {
-      return Left(error);
-    }
+    // TODO: implement resetPassword
+    throw UnimplementedError();
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../../../core/common/models/food_type_model.dart';
 import '../../../../core/errors/server_exceptions.dart';
+import '../../../../core/services/database_services/api/api_end_points.dart';
 import '../../../../core/services/database_services/api/api_services.dart';
 import '../../../../core/utils/app_strings.dart';
 
@@ -18,7 +19,7 @@ class HomeRecipesRepoImpl implements HomeRecipesRepo {
 
   HomeRecipesRepoImpl(this.apiServices);
 
-  final String key = dotenv.env[AppStrings.apiKey]!;
+  final String apiKey = dotenv.env[AppStrings.envApiKey]!;
 
   Future<Either<ServerExceptions, List<FoodTypeModel>>> getRecipes({
     required String type,
@@ -26,14 +27,14 @@ class HomeRecipesRepoImpl implements HomeRecipesRepo {
   }) async {
     try {
       final response = await apiServices.get(
-        "${AppStrings.apiRecipes}/${AppStrings.apiRandom}",
+        "${ApiEndPoints.apiRecipes}/${ApiEndPoints.apiRandom}",
         queryParameters: {
-          'number': no,
-          'tags': type,
-          'apiKey': key,
+          AppStrings.query: type,
+          AppStrings.number: no,
+          AppStrings.apiKey: apiKey,
         },
       );
-      final List foodJsonList = response[AppStrings.apiRecipes];
+      final List foodJsonList = response[ApiEndPoints.apiRecipes];
       final foodList =
           foodJsonList.map((e) => FoodTypeModel.fromJson(e)).toList();
 

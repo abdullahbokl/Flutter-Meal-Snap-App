@@ -7,8 +7,9 @@ import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/auth/presentation/screens/send_code_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
-import '../../features/home/presentation/screens/home_recipe_screen.dart';
+import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/nav_bar/presentation/screens/nav_bar_screen.dart';
+import '../../features/search/presentation/screens/search_results_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 import 'service_locator.dart';
 
@@ -24,7 +25,8 @@ class Routes {
 
   // nav bar
   static const String navBarScreen = '/navBarScreen';
-  static const String homeRecipeScreen = '/homeRecipeScreen';
+  static const String homeScreen = '/homeScreen';
+  static const String searchResultsScreen = '/searchResultsScreen';
   static const String searchScreen = '/searchScreen';
   static const String favoriteScreen = '/favoriteScreen';
   static const String moreScreen = '/moreScreen';
@@ -61,11 +63,16 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
 
       // home
-      case Routes.homeRecipeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeRecipeScreen());
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       // search
-      case Routes.searchScreen:
+      case Routes.searchResultsScreen:
+        return MaterialPageRoute(
+          builder: (_) => SearchResultsScreen(
+            typeName: '20',
+          ),
+        );
       // 404
       default:
         return MaterialPageRoute(builder: (_) => const CustomErrorPage());

@@ -1,12 +1,6 @@
 abstract class AppStrings {
   // API
-  static const String apiBaseUrl = 'https://api.spoonacular.com/recipes/';
-  static const String apiRandom = 'random';
-  static const String apiRecipes = 'recipes';
-  static const String apiEquipmentWidget = 'equipmentWidget.json?';
-  static const String apiNutritionWidget = '/nutritionWidget.json?';
-  static const String apiInformation = '/information?';
-  static const String apiSimilar = '/similar?';
+  static const String apiKey = "apiKey";
 
   // food types
   static const String foodTypeBreakfast = 'breakfast';
@@ -45,7 +39,7 @@ abstract class AppStrings {
   static const String prefsToken = 'token';
 
   // .env keys
-  static const String apiKey = 'API_KEY';
+  static const String envApiKey = 'API_KEY';
   static const String envAppWriteProjectId = 'APPWRITE_PROJECT_ID';
   static const String envAppWriteApiKey = 'APPWRITE_API_KEY';
 
@@ -60,4 +54,22 @@ abstract class AppStrings {
   static const String foodModelImage = 'image';
   static const String foodModelReadyInMinutes = 'readyInMinutes';
   static const String foodModelServings = 'servings';
+
+  // search result model
+  static const String searchResultModelId = 'id';
+  static const String searchResultModelName = 'title';
+  static const String searchResultModelImage = 'image';
+
+  // search auto complete model
+  static const String searchAutoCompleteModelId = 'id';
+  static const String searchAutoCompleteModelName = 'title';
+  static const String searchAutoCompleteModelImage = 'image';
+  static const String searchAutoCompleteModelImageType = 'imageType';
+
+  // API query parameters
+  static const String query = 'query';
+  static const String number = 'number';
+
+  // API response keys
+  static const String results = 'results';
 }

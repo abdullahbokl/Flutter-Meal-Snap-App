@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         },
         builder: (context, state) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: translate().app_appName,
             onGenerateRoute: AppRoutes.generateRoute,
             navigatorKey: AppNavigator.navigatorKey,

@@ -3,13 +3,15 @@ import 'dart:developer';
 import 'package:appwrite/appwrite.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:meal_snap/features/search/data/repositories/search_repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/repository/auth_repository.dart';
 import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
 import '../../features/home/data/repositories/home_recipes_repo.dart';
-import '../../features/home/presentation/blocs_cubits/home_recipes_bloc.dart';
+import '../../features/home/presentation/blocs_cubits/home_bloc.dart';
 import '../../features/nav_bar/presentation/blocs_cubits/nav_bar_cubit.dart';
+import '../../features/search/presentation/blocs_cubits/search_results_bloc/search_results_bloc.dart';
 import '../blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import '../services/database_services/api/api_services.dart';
 import '../services/database_services/api/app_write/app_write_init.dart';
@@ -63,6 +65,9 @@ Future<void> initServiceLocator() async {
     )
     ..registerLazySingleton<HomeRecipesRepo>(
       () => HomeRecipesRepoImpl(getIt()),
+    )
+    ..registerLazySingleton<SearchRepo>(
+      () => SearchRepoImpl(getIt()),
     );
 
   // cubits
@@ -76,7 +81,10 @@ Future<void> initServiceLocator() async {
     ..registerLazySingleton<LoginCubit>(
       () => LoginCubit(),
     )
-    ..registerLazySingleton<HomeRecipesBloc>(
-      () => HomeRecipesBloc(),
+    ..registerLazySingleton<HomeBloc>(
+      () => HomeBloc(),
+    )
+    ..registerLazySingleton<SearchResultsBloc>(
+      () => SearchResultsBloc(),
     );
 }
