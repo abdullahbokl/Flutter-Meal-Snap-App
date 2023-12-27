@@ -41,6 +41,8 @@ dependencies:
   bottom_nav_bar:
     git:
       url: https://github.com/Ansh-Rathod/bottom_nav_bar
+  firebase_dynamic_links: ^5.4.8
+  firebase_core: ^2.24.2
 
 dev_dependencies:
   flutter_test:
@@ -60,10 +62,10 @@ flutter:
     - assets/images/
     - .env
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-
+  fonts:
+    - family: Satoshi
+      fonts:
+        - asset: assets/fonts/Satoshi-Medium.ttf
+    - family: Telma
+      fonts:
+        - asset: assets/fonts/Telma-Medium.ttf

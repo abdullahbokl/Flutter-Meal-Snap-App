@@ -2,12 +2,17 @@
 class AppAssets {
   AppAssets._();
 
+  static const String fontsClashDisplayMedium =
+      'assets/fonts/ClashDisplay-Medium.ttf';
+  static const String fontsSatoshiMedium = 'assets/fonts/Satoshi-Medium.ttf';
+  static const String fontsTelmaMedium = 'assets/fonts/Telma-Medium.ttf';
   static const String imagesBackround = 'assets/images/backround.png';
   static const String imagesBackroundTwo = 'assets/images/backround_two.png';
   static const String imagesImagePicker = 'assets/images/image_picker.png';
   static const String imagesLock = 'assets/images/lock.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesLogoSvg = 'assets/images/logo_svg.svg';
-  static const String translationsAr = 'assets/translations/ar.arb';
-  static const String translationsEn = 'assets/translations/en.arb';
+  static const String mealSnap = '.env';
+  static const String translationsAr = 'assets/translations/ar.json';
+  static const String translationsEn = 'assets/translations/en.json';
 }

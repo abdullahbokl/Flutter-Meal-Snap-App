@@ -1,5 +1,5 @@
 abstract class ApiEndPoints {
-  static const String baseUrl = 'https://food-api-omega.vercel.app/api/v1/';
+  static const String baseUrl = 'https://api.spoonacular.com/';
   static const String chefSignIn = 'chef/signin';
   static const String chefChangePassword = 'chef/change-password';
   static const String chefDelete = 'chef/delete';

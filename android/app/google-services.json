@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "755753072446",
+    "project_id": "meal-snap",
+    "storage_bucket": "meal-snap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755753072446:android:0d648a770b970206141e6f",
+        "android_client_info": {
+          "package_name": "com.example.meal_snap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3RCAc-hzB-jhI5xBPETOapHbN4l8h1vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

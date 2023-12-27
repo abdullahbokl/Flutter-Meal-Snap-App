@@ -34,7 +34,6 @@ class _ApiInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     log("Request Url: ${options.uri}");
-    log("Request Data: ${options.data}");
     options.queryParameters[AppStrings.apiToken] =
         getIt<CacheServices>().getData(key: AppStrings.apiToken);
     super.onRequest(options, handler);
@@ -42,7 +41,7 @@ class _ApiInterceptors extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    log("Response Data: ${response.data}");
+    // log("Response Data: ${response.data}");
     super.onResponse(response, handler);
   }
 

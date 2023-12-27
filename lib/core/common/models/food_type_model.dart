@@ -1,13 +1,13 @@
 import 'package:meal_snap/core/utils/app_strings.dart';
 
-class FoodType {
+class FoodTypeModel {
   final String id;
   final String name;
   final String image;
   final String readyInMinutes;
   final String servings;
 
-  FoodType({
+  FoodTypeModel({
     required this.id,
     required this.name,
     required this.image,
@@ -15,8 +15,8 @@ class FoodType {
     required this.servings,
   });
 
-  factory FoodType.fromJson(json) {
-    return FoodType(
+  factory FoodTypeModel.fromJson(json) {
+    return FoodTypeModel(
       id: json[AppStrings.foodModelId].toString(),
       name: json[AppStrings.foodModelName] ?? '',
       image: json[AppStrings.foodModelImage] ?? '',
@@ -35,14 +35,14 @@ class FoodType {
     };
   }
 
-  FoodType copyWith({
+  FoodTypeModel copyWith({
     String? id,
     String? name,
     String? image,
     String? readyInMinutes,
     String? servings,
   }) {
-    return FoodType(
+    return FoodTypeModel(
       id: id ?? this.id,
       name: name ?? this.name,
       image: image ?? this.image,

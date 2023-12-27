@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../core/common/models/food_type_model.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/service_locator.dart';
-import '../../data/models/food_type.dart';
 import '../../data/repositories/home_recipes_repo.dart';
 
 part 'home_recipes_event.dart';
@@ -49,7 +49,7 @@ class HomeRecipesBloc extends Bloc<HomeRecipesEvent, HomeRecipesState> {
 
         final List<String> exception = [];
 
-        final List<List<FoodType>?> foodList = data.map((e) {
+        final List<List<FoodTypeModel>?> foodList = data.map((e) {
           e.fold(
             (l) => exception.add(l.message),
             (r) => null,
@@ -64,13 +64,13 @@ class HomeRecipesBloc extends Bloc<HomeRecipesEvent, HomeRecipesState> {
           emit(HomeFailureState(error: exception.first));
         } else {
           emit(HomeRecipesSuccess(
-            breakfast: foodList[0] as List<FoodType>,
-            lunch: foodList[1] as List<FoodType>,
-            drinks: foodList[2] as List<FoodType>,
-            pizza: foodList[3] as List<FoodType>,
-            burgers: foodList[4] as List<FoodType>,
-            cake: foodList[5] as List<FoodType>,
-            rice: foodList[6] as List<FoodType>,
+            breakfast: foodList[0] as List<FoodTypeModel>,
+            lunch: foodList[1] as List<FoodTypeModel>,
+            drinks: foodList[2] as List<FoodTypeModel>,
+            pizza: foodList[3] as List<FoodTypeModel>,
+            burgers: foodList[4] as List<FoodTypeModel>,
+            cake: foodList[5] as List<FoodTypeModel>,
+            rice: foodList[6] as List<FoodTypeModel>,
           ));
         }
       }

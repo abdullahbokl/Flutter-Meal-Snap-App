@@ -8,13 +8,13 @@ class HomeRecipesInitial extends HomeRecipesState {}
 class HomeRecipesLoading extends HomeRecipesState {}
 
 class HomeRecipesSuccess extends HomeRecipesState {
-  final List<FoodType> breakfast;
-  final List<FoodType> lunch;
-  final List<FoodType> drinks;
-  final List<FoodType> burgers;
-  final List<FoodType> pizza;
-  final List<FoodType> cake;
-  final List<FoodType> rice;
+  final List<FoodTypeModel> breakfast;
+  final List<FoodTypeModel> lunch;
+  final List<FoodTypeModel> drinks;
+  final List<FoodTypeModel> burgers;
+  final List<FoodTypeModel> pizza;
+  final List<FoodTypeModel> cake;
+  final List<FoodTypeModel> rice;
 
   HomeRecipesSuccess({
     required this.breakfast,

@@ -7,6 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/repository/auth_repository.dart';
 import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
+import '../../features/home/data/repositories/home_recipes_repo.dart';
+import '../../features/home/presentation/blocs_cubits/home_recipes_bloc.dart';
 import '../../features/nav_bar/presentation/blocs_cubits/nav_bar_cubit.dart';
 import '../blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import '../services/database_services/api/api_services.dart';
@@ -55,9 +57,13 @@ Future<void> initServiceLocator() async {
     );
 
   // repositories
-  getIt.registerLazySingleton<AuthRepo>(
-    () => AuthRepoImpl(getIt()),
-  );
+  getIt
+    ..registerLazySingleton<AuthRepo>(
+      () => AuthRepoImpl(getIt()),
+    )
+    ..registerLazySingleton<HomeRecipesRepo>(
+      () => HomeRecipesRepoImpl(getIt()),
+    );
 
   // cubits
   getIt
@@ -69,5 +75,8 @@ Future<void> initServiceLocator() async {
     )
     ..registerLazySingleton<LoginCubit>(
       () => LoginCubit(),
+    )
+    ..registerLazySingleton<HomeRecipesBloc>(
+      () => HomeRecipesBloc(),
     );
 }
