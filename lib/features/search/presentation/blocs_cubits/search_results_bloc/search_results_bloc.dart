@@ -18,7 +18,7 @@ class SearchResultsBloc extends Bloc<SearchResultsEvent, SearchResultsState> {
   _loadSearchResults(LoadSearchResultsEvent event, Emitter emit) async {
     emit(SearchResultsLoadingState());
     final results = await repo.getSearchList(
-      type: "cake",
+      type: event.typeName,
       no: 100,
     );
 

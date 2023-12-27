@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meal_snap/core/common/widgets/custom_text_widget.dart';
 import 'package:meal_snap/core/utils/app_styles.dart';
 
@@ -23,7 +22,7 @@ class CustomErrorWidget extends StatelessWidget {
             size: 60,
           ),
           Padding(
-            padding: EdgeInsets.only(top: 16.sp),
+            padding: const EdgeInsets.only(top: 16),
             child: CustomTextWidget(
               text: message,
               style: AppStyles.font20SatoshiW500,

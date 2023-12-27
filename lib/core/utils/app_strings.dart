@@ -1,4 +1,6 @@
 abstract class AppStrings {
+  static const String appName = 'MealSnap';
+
   // API
   static const String apiKey = "apiKey";
 

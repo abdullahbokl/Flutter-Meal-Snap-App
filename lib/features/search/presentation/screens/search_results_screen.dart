@@ -4,38 +4,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/common/widgets/custom_app_bar.dart';
 import '../../../../core/common/widgets/custom_error_widget.dart';
 import '../../../../core/common/widgets/custom_loading_indicator.dart';
+import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/service_locator.dart';
+import '../../data/models/search_results_screen_arguments.dart';
 import '../blocs_cubits/search_results_bloc/search_results_bloc.dart';
 import '../widgets/search_results_screen/search_results_screen_body.dart';
 
-class SearchResultsScreen extends StatefulWidget {
+class SearchResultsScreen extends StatelessWidget {
   const SearchResultsScreen({
     super.key,
-    required this.typeName,
+    required this.args,
   });
 
-  final String typeName;
-
-  @override
-  State<SearchResultsScreen> createState() => _SearchResultsScreenState();
-}
-
-class _SearchResultsScreenState extends State<SearchResultsScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  final SearchResultsScreenArguments args;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<SearchResultsBloc>()
-        ..add(LoadSearchResultsEvent(typeName: widget.typeName)),
+        ..add(LoadSearchResultsEvent(
+          typeName: args.typeName,
+        )),
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: customAppBar(
-          title: "Meal Snap",
-        ),
+        appBar: customAppBar(title: AppStrings.appName),
         body: BlocBuilder<SearchResultsBloc, SearchResultsState>(
           builder: (context, state) {
             if (state is SearchResultsLoadingState) {

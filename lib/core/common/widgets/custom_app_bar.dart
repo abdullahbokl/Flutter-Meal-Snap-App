@@ -11,7 +11,7 @@ PreferredSizeWidget customAppBar({
     elevation: 0,
     backgroundColor: AppColors.white,
     iconTheme: const IconThemeData(
-      color: AppColors.primary,
+      color: AppColors.secondaryColor,
     ),
     title: CustomTextWidget(
       text: title,

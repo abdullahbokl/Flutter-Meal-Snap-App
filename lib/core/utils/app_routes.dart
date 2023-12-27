@@ -9,14 +9,15 @@ import '../../features/auth/presentation/screens/send_code_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/nav_bar/presentation/screens/nav_bar_screen.dart';
+import '../../features/search/data/models/search_results_screen_arguments.dart';
 import '../../features/search/presentation/screens/search_results_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 import 'service_locator.dart';
 
 class Routes {
   // splash
-  static const String initialRoute = '/asd';
-  static const String changeLangScreen = '/';
+  static const String initialRoute = '/';
+  static const String changeLangScreen = '/changeLangScreen';
 
   // auth
   static const String loginScreen = '/loginScreen';
@@ -70,7 +71,7 @@ class AppRoutes {
       case Routes.searchResultsScreen:
         return MaterialPageRoute(
           builder: (_) => SearchResultsScreen(
-            typeName: routeSettings.arguments as String,
+            args: routeSettings.arguments as SearchResultsScreenArguments,
           ),
         );
       // 404

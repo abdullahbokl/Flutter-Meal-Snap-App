@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meal_snap/core/utils/app_assets.dart';
 
 import '../../../../../core/common/widgets/custom_text_widget.dart';
+import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 
@@ -22,7 +23,9 @@ class LoginAppBar extends StatelessWidget {
             const Spacer(flex: 3),
             CustomTextWidget(
               text: translate().authentication_welcomeBack,
-              style: AppStyles.font32SatoshiW900,
+              style: AppStyles.font32SatoshiW900.copyWith(
+                color: AppColors.white,
+              ),
             ),
             const Spacer(flex: 1),
           ],
