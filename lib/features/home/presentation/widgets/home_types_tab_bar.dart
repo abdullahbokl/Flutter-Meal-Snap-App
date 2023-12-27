@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meal_snap/core/common/widgets/custom_text_widget.dart';
+import 'package:meal_snap/core/utils/app_navigator.dart';
+import 'package:meal_snap/core/utils/app_routes.dart';
 import 'package:meal_snap/core/utils/app_styles.dart';
 
 import '../../../../core/common/animation/animation.dart';
@@ -60,7 +63,10 @@ class _ChipWidget extends StatelessWidget {
         delay: const Duration(microseconds: 600),
         child: InkWell(
           onTap: () {
-            // todo : navigate to recipe info screen
+            AppNavigator.pushNamed(
+              Routes.searchResultsScreen,
+              arguments: text,
+            );
           },
           child: Container(
             decoration: BoxDecoration(
@@ -85,10 +91,7 @@ class _ChipWidget extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
               child: CustomTextWidget(
                 text: text,
-                style: AppStyles.fontMedium(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 16,
-                ),
+                style: AppStyles.font16SatoshiBold.copyWith(fontSize: 18.sp),
               ),
             ),
           ),

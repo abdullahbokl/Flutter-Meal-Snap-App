@@ -8,7 +8,7 @@ import '../../../../core/utils/service_locator.dart';
 import '../blocs_cubits/search_results_bloc/search_results_bloc.dart';
 import '../widgets/search_results_screen/search_results_screen_body.dart';
 
-class SearchResultsScreen extends StatelessWidget {
+class SearchResultsScreen extends StatefulWidget {
   const SearchResultsScreen({
     super.key,
     required this.typeName,
@@ -17,35 +17,38 @@ class SearchResultsScreen extends StatelessWidget {
   final String typeName;
 
   @override
-  Widget build(BuildContext context) {
-    final searchResultsBloc = getIt<SearchResultsBloc>()
-      ..add(LoadSearchResultsEvent(typeName: typeName));
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: customAppBar(title: "Meal Snap"),
+  State<SearchResultsScreen> createState() => _SearchResultsScreenState();
+}
 
-      // AppBar(
-      //   elevation: 0,
-      //   iconTheme: const IconThemeData(color: Colors.black),
-      //   backgroundColor: Colors.white,
-      //   title: Text(
-      //     "Spoonacular",
-      //     style: Theme.of(context).textTheme.headline1,
-      //   ),
-      // ),
-      body: BlocBuilder<SearchResultsBloc, SearchResultsState>(
-        builder: (context, state) {
-          if (state is SearchResultsLoadingState) {
-            return const Center(child: CustomLoadingIndicator());
-          } else if (state is SearchResultsSuccessState) {
-            return const SearchResultsScreenBody();
-          } else if (state is SearchResultsFailureState) {
-            return CustomErrorWidget(message: state.message);
-            // return ErrorWidget(state.message);
-          } else {
-            return const CustomErrorWidget(message: "Something went wrong");
-          }
-        },
+class _SearchResultsScreenState extends State<SearchResultsScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<SearchResultsBloc>()
+        ..add(LoadSearchResultsEvent(typeName: widget.typeName)),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: customAppBar(
+          title: "Meal Snap",
+        ),
+        body: BlocBuilder<SearchResultsBloc, SearchResultsState>(
+          builder: (context, state) {
+            if (state is SearchResultsLoadingState) {
+              return const Center(child: CustomLoadingIndicator());
+            } else if (state is SearchResultsSuccessState) {
+              return const SearchResultsScreenBody();
+            } else if (state is SearchResultsFailureState) {
+              return CustomErrorWidget(message: state.message);
+            } else {
+              return const CustomErrorWidget(message: "Something went wrong");
+            }
+          },
+        ),
       ),
     );
   }

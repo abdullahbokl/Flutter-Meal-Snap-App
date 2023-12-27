@@ -84,7 +84,7 @@ Future<void> initServiceLocator() async {
     ..registerLazySingleton<HomeBloc>(
       () => HomeBloc(),
     )
-    ..registerLazySingleton<SearchResultsBloc>(
+    ..registerFactory<SearchResultsBloc>(
       () => SearchResultsBloc(),
     );
 }

@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import '../../../../../core/common/widgets/custom_image.dart';
 import '../../../../../core/common/widgets/custom_text_widget.dart';
 import '../../../../../core/utils/app_assets.dart';
+import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_constants.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'change_lang_buttons.dart';
@@ -35,12 +36,16 @@ class ChangeLangScreenBody extends StatelessWidget {
               Gap(16.h),
               CustomTextWidget(
                 text: translate().app_appName,
-                style: AppStyles.fontExtraLargeBold(),
+                style: AppStyles.font32TelmaW900.copyWith(
+                  color: AppColors.white,
+                ),
               ),
               Gap(80.h),
               CustomTextWidget(
                 text: translate().authentication_pleaseChooseYourLanguage,
-                style: AppStyles.fontMediumBold(),
+                style: AppStyles.font20SatoshiW500.copyWith(
+                  color: AppColors.white,
+                ),
               ),
               Gap(30.h),
               const ChangeLangButtons(),

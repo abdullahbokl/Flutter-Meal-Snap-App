@@ -15,8 +15,8 @@ import 'service_locator.dart';
 
 class Routes {
   // splash
-  static const String initialRoute = '/';
-  static const String changeLangScreen = '/changeLangScreen';
+  static const String initialRoute = '/asd';
+  static const String changeLangScreen = '/';
 
   // auth
   static const String loginScreen = '/loginScreen';
@@ -70,7 +70,7 @@ class AppRoutes {
       case Routes.searchResultsScreen:
         return MaterialPageRoute(
           builder: (_) => SearchResultsScreen(
-            typeName: '20',
+            typeName: routeSettings.arguments as String,
           ),
         );
       // 404

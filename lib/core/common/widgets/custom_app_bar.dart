@@ -9,12 +9,13 @@ PreferredSizeWidget customAppBar({
 }) {
   return AppBar(
     elevation: 0,
-    backgroundColor: Colors.white,
+    backgroundColor: AppColors.white,
+    iconTheme: const IconThemeData(
+      color: AppColors.primary,
+    ),
     title: CustomTextWidget(
       text: title,
-      style: AppStyles.fontLargeBold().copyWith(
-        color: AppColors.primary,
-      ),
+      style: AppStyles.font24TelmaBold,
     ),
   );
 }

@@ -24,7 +24,7 @@ class SplashScreenBody extends StatelessWidget {
           const Gap(10),
           Text(
             translate().app_appName,
-            style: AppStyles.fontExtraLargeBold(),
+            style: AppStyles.font32TelmaW900,
           )
         ],
       ),

@@ -22,7 +22,7 @@ class LoginAppBar extends StatelessWidget {
             const Spacer(flex: 3),
             CustomTextWidget(
               text: translate().authentication_welcomeBack,
-              style: AppStyles.fontExtraLargeBold(),
+              style: AppStyles.font32SatoshiW900,
             ),
             const Spacer(flex: 1),
           ],

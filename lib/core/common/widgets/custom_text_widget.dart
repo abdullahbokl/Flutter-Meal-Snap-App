@@ -17,7 +17,7 @@ class CustomTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: style ?? AppStyles.fontSmall(),
+      style: style ?? AppStyles.font16SatoshiBold,
       textDirection: AppConstants.appTextDirection,
       textAlign: TextAlign.center,
     );

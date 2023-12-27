@@ -23,7 +23,7 @@ class LoginWelcomeWidget extends StatelessWidget {
       child: Center(
         child: CustomTextWidget(
           text: translate().authentication_welcomeBack,
-          style: AppStyles.fontExtraLargeBold(),
+          style: AppStyles.font32SatoshiW900,
         ),
       ),
     );

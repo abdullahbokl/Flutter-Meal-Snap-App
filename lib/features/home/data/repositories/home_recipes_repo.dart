@@ -21,6 +21,7 @@ class HomeRecipesRepoImpl implements HomeRecipesRepo {
 
   final String apiKey = dotenv.env[AppStrings.envApiKey]!;
 
+  @override
   Future<Either<ServerExceptions, List<FoodTypeModel>>> getRecipes({
     required String type,
     required int no,
@@ -38,9 +39,12 @@ class HomeRecipesRepoImpl implements HomeRecipesRepo {
       final foodList =
           foodJsonList.map((e) => FoodTypeModel.fromJson(e)).toList();
 
-      return Right(foodList);
+      if (foodList.isNotEmpty) {
+        return Right(foodList);
+      }
     } on ServerExceptions catch (e) {
       return Left(e);
     }
+    return Left(ServerExceptions("No Data Found"));
   }
 }

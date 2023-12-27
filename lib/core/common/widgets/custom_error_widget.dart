@@ -26,9 +26,7 @@ class CustomErrorWidget extends StatelessWidget {
             padding: EdgeInsets.only(top: 16.sp),
             child: CustomTextWidget(
               text: message,
-              style: AppStyles.fontMedium().copyWith(
-                color: Colors.red,
-              ),
+              style: AppStyles.font20SatoshiW500,
             ),
           ),
         ],

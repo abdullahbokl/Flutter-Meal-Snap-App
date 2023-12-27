@@ -2,10 +2,9 @@
 class AppAssets {
   AppAssets._();
 
-  static const String fontsClashDisplayMedium =
-      'assets/fonts/ClashDisplay-Medium.ttf';
-  static const String fontsSatoshiMedium = 'assets/fonts/Satoshi-Medium.ttf';
-  static const String fontsTelmaMedium = 'assets/fonts/Telma-Medium.ttf';
+  static const String fontsClashDisplay = 'ClashDisplay';
+  static const String fontsSatoshi = 'Satoshi';
+  static const String fontsTelma = 'Telma';
   static const String imagesBackround = 'assets/images/backround.png';
   static const String imagesBackroundTwo = 'assets/images/backround_two.png';
   static const String imagesImagePicker = 'assets/images/image_picker.png';

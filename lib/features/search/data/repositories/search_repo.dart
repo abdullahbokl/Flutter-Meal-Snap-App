@@ -46,7 +46,9 @@ class SearchRepoImpl implements SearchRepo {
         for (final v in response[AppStrings.results]) {
           list.add(SearchResultModel.fromJson(v));
         }
-        return Right(list);
+        if (list.isNotEmpty) {
+          return Right(list);
+        }
       }
     } on ServerExceptions catch (e) {
       return Left(e);
@@ -75,7 +77,9 @@ class SearchRepoImpl implements SearchRepo {
         for (final v in response) {
           list.add(SearchAutoCompleteModel.fromJson(v));
         }
-        return Right(list);
+        if (list.isNotEmpty) {
+          return Right(list);
+        }
       }
     } on ServerExceptions catch (e) {
       return Left(e);
