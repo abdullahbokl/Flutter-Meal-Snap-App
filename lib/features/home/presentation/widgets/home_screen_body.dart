@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../core/common/widgets/custom_search_field.dart';
 import '../../data/models/home_body_model.dart';
 import '../widgets/home_types_tab_bar.dart';
 import 'home_custom_message_widget.dart';
-import 'home_horizontal_section.dart';
-import 'home_vertical_section.dart';
+import 'home_food_viewer.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -28,37 +26,7 @@ class HomeScreenBody extends StatelessWidget {
           const Gap(20),
           const HomeTypesTabBar(),
           const Gap(10),
-          CustomSearchField(onSubmitted: () {}),
-          HomeHorizontalSection(
-            headerText: "Popular Breakfast Recipes",
-            typeName: "breakfast",
-            items: homeBodyModel.breakfast,
-          ),
-          HomeVerticalSection(
-            headerText: "Best Lunch Recipes",
-            typeName: "lunch",
-            items: homeBodyModel.lunch,
-          ),
-          HomeHorizontalSection(
-            headerText: "Popular Drinks",
-            typeName: "drinks",
-            items: homeBodyModel.drinks,
-          ),
-          HomeVerticalSection(
-            headerText: "Best Burgers Recipes",
-            typeName: "burgers",
-            items: homeBodyModel.burgers,
-          ),
-          HomeHorizontalSection(
-            headerText: "Pizza",
-            typeName: "pizza",
-            items: homeBodyModel.pizza,
-          ),
-          HomeVerticalSection(
-            headerText: "Wants Best Cake",
-            typeName: "cake",
-            items: homeBodyModel.cake,
-          ),
+          HomeFoodViewer(homeBodyModel: homeBodyModel),
         ],
       ),
     );

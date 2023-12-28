@@ -31,7 +31,8 @@ class SearchRepoImpl implements SearchRepo {
     required String type,
     required int no,
   }) async {
-    const String url = "/recipes/complexSearch";
+    const String url =
+        "${AppStrings.apiRecipesEndPoint}/${AppStrings.apiComplexSearchEndPoint}";
     try {
       final response = await apiServices.get(
         url,
@@ -61,7 +62,8 @@ class SearchRepoImpl implements SearchRepo {
       getAutoCompleteList({
     required String searchText,
   }) async {
-    const String url = "/recipes/autocomplete";
+    const String url =
+        "${AppStrings.apiRecipesEndPoint}/${AppStrings.apiAutoCompleteEndPoint}";
 
     try {
       final response = await apiServices.get(

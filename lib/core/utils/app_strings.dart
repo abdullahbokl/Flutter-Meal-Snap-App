@@ -4,6 +4,17 @@ abstract class AppStrings {
   // API
   static const String apiKey = "apiKey";
 
+  // API end points
+  static const String apiBaseUrl = 'https://api.spoonacular.com/';
+  static const String apiRandomEndPoint = 'random';
+  static const String apiRecipesEndPoint = 'recipes';
+  static const String apiInformationEndPoint = 'information';
+  static const String apiSimilarEndPoint = 'similar';
+  static const String apiComplexSearchEndPoint = 'complexSearch';
+  static const String apiAutoCompleteEndPoint = 'autocomplete';
+  static const String apiEquipmentsEndPoint = 'equipmentWidget.json?';
+  static const String apiNutritionEndPoint = 'nutritionWidget.json?';
+
   // food types
   static const String foodTypeBreakfast = 'breakfast';
   static const String foodTypeLunch = 'lunch';
@@ -35,6 +46,7 @@ abstract class AppStrings {
   static const String apiCategory = 'category';
   static const String apiMealImages = 'mealImages';
   static const String apiHowToSell = 'howToSell';
+  static const String apiEquipment = 'equipment';
 
   // shared preferences keys
   static const String prefsId = 'id';

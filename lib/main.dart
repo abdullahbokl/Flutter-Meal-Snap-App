@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:meal_snap/features/recipe_info/presentation/bloc/recipe_info_bloc.dart';
 import 'package:nested/nested.dart';
 
 import 'core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
@@ -17,6 +18,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await _appInit();
+  getIt<RecipeInfoBloc>().add(LoadRecipeInfoEvent(id: "1"));
   runApp(
     MultiBlocProvider(
       providers: _providers(),

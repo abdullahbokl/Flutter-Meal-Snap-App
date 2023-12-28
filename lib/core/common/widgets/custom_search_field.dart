@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchField extends StatelessWidget {
-  const CustomSearchField({super.key, this.onSubmitted});
+  const CustomSearchField({
+    super.key,
+    this.onSubmitted,
+    this.searchController,
+    this.onChanged,
+  });
 
+  final TextEditingController? searchController;
   final VoidCallback? onSubmitted;
+
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: TextField(
+        controller: searchController,
         onSubmitted: (value) {},
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: "Search Recipes..",
           suffixIcon: IconButton(

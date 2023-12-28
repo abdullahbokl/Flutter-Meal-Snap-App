@@ -5,7 +5,6 @@ import '../../../../core/common/widgets/custom_app_bar.dart';
 import '../../../../core/common/widgets/custom_error_widget.dart';
 import '../../../../core/common/widgets/custom_loading_indicator.dart';
 import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/service_locator.dart';
 import '../blocs_cubits/home_bloc.dart';
 import '../widgets/home_screen_body.dart';
 
@@ -19,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    getIt<HomeBloc>().add(LoadHomeDataEvent());
+    // getIt<HomeBloc>().add(LoadHomeDataEvent());
     super.initState();
   }
 

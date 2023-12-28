@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:appwrite/appwrite.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:meal_snap/features/recipe_info/data/repositories/recipe_info_repo.dart';
 import 'package:meal_snap/features/search/data/repositories/search_repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,6 +12,7 @@ import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.da
 import '../../features/home/data/repositories/home_recipes_repo.dart';
 import '../../features/home/presentation/blocs_cubits/home_bloc.dart';
 import '../../features/nav_bar/presentation/blocs_cubits/nav_bar_cubit.dart';
+import '../../features/recipe_info/presentation/bloc/recipe_info_bloc.dart';
 import '../../features/search/presentation/blocs_cubits/search_results_bloc/search_results_bloc.dart';
 import '../blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import '../services/database_services/api/api_services.dart';
@@ -68,6 +70,9 @@ Future<void> initServiceLocator() async {
     )
     ..registerLazySingleton<SearchRepo>(
       () => SearchRepoImpl(getIt()),
+    )
+    ..registerLazySingleton<RecipeInfoRepo>(
+      () => RecipeInfoRepoImpl(getIt()),
     );
 
   // cubits
@@ -86,5 +91,8 @@ Future<void> initServiceLocator() async {
     )
     ..registerFactory<SearchResultsBloc>(
       () => SearchResultsBloc(),
+    )
+    ..registerFactory<RecipeInfoBloc>(
+      () => RecipeInfoBloc(),
     );
 }

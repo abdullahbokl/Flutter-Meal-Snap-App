@@ -5,12 +5,11 @@ import 'package:dio/dio.dart';
 import '../../../../utils/app_strings.dart';
 import '../../../../utils/service_locator.dart';
 import '../../cache/cache_services.dart';
-import '../api_end_points.dart';
 
 Dio dioInit() {
   final dio = Dio(
     BaseOptions(
-      baseUrl: ApiEndPoints.baseUrl,
+      baseUrl: AppStrings.apiBaseUrl,
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
       headers: {
