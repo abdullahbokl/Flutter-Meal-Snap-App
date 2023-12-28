@@ -1,6 +1,9 @@
 abstract class AppStrings {
   static const String appName = 'MealSnap';
 
+  // Hive
+  static const String favoriteBox = 'Favorite';
+
   // API
   static const String apiKey = "apiKey";
 
