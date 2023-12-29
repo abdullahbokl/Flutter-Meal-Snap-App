@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meal_snap/core/utils/app_strings.dart';
 
-import '../models/recipe/racipe_model.dart';
+import '../../models/recipe/recipe_model.dart';
 
 class CustomFavoriteButton extends StatelessWidget {
   final RecipeInfoModel info;
@@ -12,7 +12,7 @@ class CustomFavoriteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box>(
-      valueListenable: Hive.box("Favorite").listenable(),
+      valueListenable: Hive.box(AppStrings.favoriteBox).listenable(),
       builder: (context, box, child) {
         bool isFavorite = box.containsKey(info.id);
         if (isFavorite) {

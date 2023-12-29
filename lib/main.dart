@@ -2,12 +2,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meal_snap/features/recipe_info/presentation/bloc/recipe_info_bloc.dart';
 import 'package:nested/nested.dart';
 
 import 'core/blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import 'core/blocs_cubits/bloc_observer.dart';
 import 'core/utils/app_constants.dart';
+import 'core/utils/app_strings.dart';
 import 'core/utils/service_locator.dart';
 import 'features/home/presentation/blocs_cubits/home_bloc.dart';
 import 'features/nav_bar/presentation/blocs_cubits/nav_bar_cubit.dart';
@@ -49,4 +51,10 @@ Future<void> _appInit() async {
   await dotenv.load(fileName: ".env");
   await initServiceLocator();
   AppConstants.appLocalizations = await getIt<AppLangCubit>().initAppLocale();
+  await _hiveInit();
+}
+
+Future<void> _hiveInit() async {
+  await Hive.initFlutter();
+  await Hive.openBox(AppStrings.favoriteBox);
 }

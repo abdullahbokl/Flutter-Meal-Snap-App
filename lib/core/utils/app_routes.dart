@@ -9,6 +9,7 @@ import '../../features/auth/presentation/screens/send_code_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/nav_bar/presentation/screens/nav_bar_screen.dart';
+import '../../features/recipe_info/data/models/recipe_info_screen_arguments.dart';
 import '../../features/recipe_info/presentation/screens/recipe_info_screen.dart';
 import '../../features/search/data/models/search_results_screen_arguments.dart';
 import '../../features/search/presentation/screens/search_results_screen.dart';
@@ -28,6 +29,7 @@ class Routes {
   // nav bar
   static const String navBarScreen = '/navBarScreen';
   static const String homeScreen = '/homeScreen';
+
   // static const String recipeInfoScreen = '/recipeInfoScreen';
   static const String recipeInfoScreen = '/';
   static const String searchResultsScreen = '/searchResultsScreen';
@@ -72,9 +74,11 @@ class AppRoutes {
 
       case Routes.recipeInfoScreen:
         return MaterialPageRoute(
-            builder: (_) => RecipeInfoScreen(
-                  id: "1",
-                ));
+          builder: (_) => RecipeInfoScreen(
+            arguments: RecipeInfoScreenArguments(id: "1"),
+            // arguments: routeSettings.arguments as RecipeInfoScreenArguments,
+          ),
+        );
 
       // search
       case Routes.searchResultsScreen:

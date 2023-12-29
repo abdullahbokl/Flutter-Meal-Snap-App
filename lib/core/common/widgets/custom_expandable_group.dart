@@ -74,9 +74,8 @@ class _CustomExpandableGroupState extends State<CustomExpandableGroup> {
       children.add(Divider());
     }
     children.add(ListTile(
-      contentPadding: widget.headerEdgeInsets != null
-          ? widget.headerEdgeInsets
-          : EdgeInsets.only(left: 0.0, right: 16.0),
+      contentPadding: widget.headerEdgeInsets ??
+          const EdgeInsets.only(left: 0.0, right: 16.0),
       title: widget.header,
       trailing: _isExpanded
           ? widget.expandedIcon ?? Icon(Icons.keyboard_arrow_down)

@@ -8,17 +8,9 @@ class RecipeInfoInitialState extends RecipeInfoState {}
 class RecipeInfoLoadingState extends RecipeInfoState {}
 
 class RecipeInfoSuccessState extends RecipeInfoState {
-  final RecipeInfoModel recipe;
-  final List<Similar> similar;
-  final List<Equipment> equipment;
-  final Nutrient nutrient;
+  final RecipeInfoScreenModel dataModel;
 
-  RecipeInfoSuccessState({
-    required this.recipe,
-    required this.nutrient,
-    required this.similar,
-    required this.equipment,
-  });
+  RecipeInfoSuccessState({required this.dataModel});
 }
 
 class RecipeInfoFailureState extends RecipeInfoState {

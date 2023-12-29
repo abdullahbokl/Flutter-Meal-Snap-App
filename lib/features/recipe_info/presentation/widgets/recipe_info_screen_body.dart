@@ -1,259 +1,188 @@
 import 'package:flutter/material.dart';
+import 'package:meal_snap/core/common/widgets/custom_text_widget.dart';
+import 'package:meal_snap/core/utils/app_styles.dart';
+import 'package:meal_snap/features/recipe_info/presentation/widgets/recipe_info_status_card.dart';
+import 'package:meal_snap/features/recipe_info/presentation/widgets/similar_list.dart';
 
 import '../../../../core/common/animation/animation.dart';
-import '../../../../core/common/models/recipe/equipment.dart';
-import '../../../../core/common/models/recipe/nutrients.dart';
-import '../../../../core/common/models/recipe/racipe_model.dart';
-import '../../../../core/common/models/recipe/similar_list.dart';
-import '../../../../core/common/widgets/custom_sliver_app_bar.dart';
-import 'equipments.dart';
-import 'ingredients.dart';
-import 'nutrirents.dart';
-import 'similar_list.dart';
+import '../../../../core/common/widgets/custom_sliver_app_bar/custom_sliver_app_bar.dart';
+import '../../../../core/utils/app_strings.dart';
+import '../../data/models/recipe_info_screen_data_model.dart';
+import 'nutrients.dart';
+import 'recipe_info_section.dart';
 
-class RecipeInfoScreenBody extends StatefulWidget {
-  final RecipeInfoModel info;
-  final List<Similar> similarList;
-  final List<Equipment> equipment;
-  final Nutrient nutrient;
+class RecipeInfoScreenBody extends StatelessWidget {
+  final RecipeInfoScreenModel dataModel;
 
   const RecipeInfoScreenBody({
     Key? key,
-    required this.info,
-    required this.similarList,
-    required this.equipment,
-    required this.nutrient,
+    required this.dataModel,
   }) : super(key: key);
 
-  @override
-  State<RecipeInfoScreenBody> createState() => _RecipeInfoScreenBodyState();
-}
-
-class _RecipeInfoScreenBodyState extends State<RecipeInfoScreenBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
+          // app bar
           SliverPersistentHeader(
-            delegate: MySliverAppBar(expandedHeight: 300, info: widget.info),
+            delegate: CustomSliverAppBar(
+              expandedHeight: 300,
+              info: dataModel.info,
+            ),
             pinned: true,
           ),
-          SliverToBoxAdapter(
-            child: Column(
+          // title
+          buildPaddedSliverWidget(
+            child: CustomTextWidget(
+              text: dataModel.info.title!,
+              style: AppStyles.font24TelmaBold,
+            ),
+          ),
+          // status card
+          buildPaddedSliverWidget(
+            child: RecipeInfoStatusCard(dataModel: dataModel),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
+          ),
+          // ingredients
+          buildPaddedSliverWidget(
+            child: RecipeInfoSection(
+              title: AppStrings.recipeInfoScreenModelIngredients,
+              data: dataModel.info.extendedIngredients!,
+            ),
+            padding: const EdgeInsets.all(25.0),
+          ),
+          // instructions
+          if (dataModel.info.instructions != null)
+            buildPaddedSliverWidget(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DelayedDisplay(
-                    delay: const Duration(microseconds: 600),
-                    child: Container(
-                      padding: const EdgeInsets.all(26.0),
-                      child: Text(
-                        widget.info.title!,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 25),
-                      ),
+                  Text(
+                    "Instructions",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 26.0, vertical: 10),
-                    child: DelayedDisplay(
-                      delay: const Duration(microseconds: 700),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: const [
-                            BoxShadow(
-                              offset: Offset(-2, -2),
-                              blurRadius: 12,
-                              color: Color.fromRGBO(0, 0, 0, 0.05),
-                            ),
-                            BoxShadow(
-                              offset: Offset(2, 2),
-                              blurRadius: 5,
-                              color: Color.fromRGBO(0, 0, 0, 0.10),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Flexible(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Text(
-                                      widget.info.readyInMinutes.toString() +
-                                          " Min",
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20)),
-                                  Text(
-                                    "Ready in",
-                                    style: TextStyle(
-                                      color: Colors.grey.shade600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              height: 30,
-                              width: 2,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            Flexible(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Text(widget.info.servings.toString(),
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20)),
-                                  Text(
-                                    "Servings",
-                                    style:
-                                        TextStyle(color: Colors.grey.shade600),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              height: 30,
-                              width: 2,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            Flexible(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Text(widget.info.pricePerServing.toString(),
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20)),
-                                  Text("Price/Servings",
-                                      style: TextStyle(
-                                          color: Colors.grey.shade600))
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+                  SizedBox(height: 20),
+                  // Html(
+                  //   data: widget.info.instructions,
+                  //   style: {
+                  //     'p': Style(
+                  //       fontSize: FontSize.large,
+                  //       color: Colors.black,
+                  //     ),
+                  //   },
+                  // ),
+                ],
+              ),
+              padding: const EdgeInsets.all(26.0),
+            ),
+          // equipments
+          buildPaddedSliverWidget(
+            child: RecipeInfoSection(
+              title: AppStrings.recipeInfoScreenModelEquipments,
+              data: dataModel.equipment,
+            ),
+
+            // Column(
+            //   children: [
+            //     if (dataModel.equipment.isNotEmpty)
+            //       Text(
+            //         "Equipments",
+            //         style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 20,
+            //         ),
+            //       ),
+            //     if (dataModel.equipment.isNotEmpty)
+            //       EquipmentsListView(
+            //         equipments: dataModel.equipment,
+            //       ),
+            //     // todo : RecipeInfoHorizontalListView
+            //   ],
+            // ),
+            padding: const EdgeInsets.all(26.0),
+          ),
+          // summary
+          if (dataModel.info.summary != null)
+            buildPaddedSliverWidget(
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Quick summary",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(26.0),
-                    child: DelayedDisplay(
-                      delay: const Duration(microseconds: 700),
-                      child: Text(
-                        "Ingredients",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
+                  SizedBox(height: 20),
+                  // Html(
+                  //   data: widget.info.summary,
+                  // ),
+                ],
+              ),
+              padding: const EdgeInsets.all(26.0),
+            ),
+          // nutrients
+          buildPaddedSliverWidget(
+            child: Column(
+              children: [
+                NutrientsWidgets(
+                  nutrient: dataModel.nutrient,
+                ),
+                NutrientsbadWidget(
+                  nutrient: dataModel.nutrient,
+                ),
+                NutrientsgoodWidget(
+                  nutrient: dataModel.nutrient,
+                ),
+                const SizedBox(height: 20),
+              ],
+            ),
+          ),
+          // similar
+          buildPaddedSliverWidget(
+            child: Column(
+              children: [
+                if (dataModel.similarList.isNotEmpty)
+                  Text(
+                    "Similar items",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
-                  if (widget.info.extendedIngredients!.isNotEmpty)
-                    DelayedDisplay(
-                      delay: const Duration(microseconds: 600),
-                      child: IngredientsWidget(
-                        recipe: widget.info,
-                      ),
-                    ),
-                  if (widget.info.instructions != null)
-                    const Padding(
-                      padding: EdgeInsets.all(26.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Instructions",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          // Html(
-                          //   data: widget.info.instructions,
-                          //   style: {
-                          //     'p': Style(
-                          //       fontSize: FontSize.large,
-                          //       color: Colors.black,
-                          //     ),
-                          //   },
-                          // ),
-                        ],
-                      ),
-                    ),
-                  if (widget.equipment.isNotEmpty)
-                    const Padding(
-                      padding: EdgeInsets.all(26.0),
-                      child: Text(
-                        "Equipments",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                    ),
-                  if (widget.equipment.isNotEmpty)
-                    EquipmentsListView(
-                      equipments: widget.equipment,
-                    ),
-                  if (widget.info.summary != null)
-                    const Padding(
-                      padding: EdgeInsets.all(26.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Quick summary",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          // Html(
-                          //   data: widget.info.summary,
-                          // ),
-                        ],
-                      ),
-                    ),
-                  NutrientsWidgets(
-                    nutrient: widget.nutrient,
-                  ),
-                  NutrientsbadWidget(
-                    nutrient: widget.nutrient,
-                  ),
-                  NutrientsgoodWidget(
-                    nutrient: widget.nutrient,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  if (widget.similarList.isNotEmpty)
-                    const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 30.0, vertical: 26),
-                      child: Text("Similar items",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20)),
-                    ),
-                  if (widget.similarList.isNotEmpty)
-                    SimilarListWidget(items: widget.similarList),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                ]),
-          )
+                if (dataModel.similarList.isNotEmpty)
+                  SimilarListWidget(items: dataModel.similarList),
+                const SizedBox(
+                  height: 40,
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 26),
+          ),
         ],
       ),
     );
   }
+}
+
+SliverToBoxAdapter buildPaddedSliverWidget({
+  required Widget child,
+  EdgeInsetsGeometry? padding,
+}) {
+  return SliverToBoxAdapter(
+    child: DelayedDisplay(
+      delay: const Duration(microseconds: 600),
+      child: Container(
+        padding: padding ?? const EdgeInsets.all(25),
+        child: child,
+      ),
+    ),
+  );
 }

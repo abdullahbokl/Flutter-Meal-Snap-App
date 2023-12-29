@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_snap/features/recipe_info/presentation/screens/recipe_info_screen.dart';
 
 import '../../../../core/common/models/recipe/similar_list.dart';
+import '../../data/models/recipe_info_screen_arguments.dart';
 import '../bloc/recipe_info_bloc.dart';
 
 class SimilarListWidget extends StatelessWidget {
@@ -50,7 +51,7 @@ class _RecipeCardWidgetState extends State<RecipeCardWidget> {
             builder: (context) => BlocProvider(
                   create: (context) => RecipeInfoBloc(),
                   child: RecipeInfoScreen(
-                    id: widget.items.id,
+                    arguments: RecipeInfoScreenArguments(id: widget.items.id),
                   ),
                 )));
       },

@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_snap/core/utils/app_strings.dart';
+import 'package:meal_snap/features/recipe_info/data/models/recipe_info_screen_data_model.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../core/common/models/recipe/equipment.dart';
 import '../../../../core/common/models/recipe/nutrients.dart';
-import '../../../../core/common/models/recipe/racipe_model.dart';
+import '../../../../core/common/models/recipe/recipe_model.dart';
 import '../../../../core/common/models/recipe/similar_list.dart';
 import '../../../../core/errors/server_exceptions.dart';
 import '../../../../core/utils/service_locator.dart';
@@ -37,16 +38,20 @@ class RecipeInfoBloc extends Bloc<RecipeInfoEvent, RecipeInfoState> {
 
     if (exceptions.isNotEmpty) {
       emit(RecipeInfoFailureState(message: exceptions.first));
-    } else {
-      emit(
-        RecipeInfoSuccessState(
-          recipe: RecipeInfoModel.fromJson(handledData[0]),
-          similar: SimilarList.fromJson(handledData[1]).list,
-          equipment: EquipmentsList.fromJson(handledData[2]).items,
-          nutrient: Nutrient.fromJson(handledData[3]),
-        ),
-      );
+      return;
     }
+
+    final RecipeInfoScreenModel recipeInfoScreenModel = RecipeInfoScreenModel(
+      info: RecipeInfoModel.fromJson(handledData[0]),
+      similarList: SimilarList.fromJson(handledData[1]).list,
+      equipment: EquipmentsList.fromJson(handledData[2]).items,
+      nutrient: Nutrient.fromJson(handledData[3]),
+    );
+    emit(
+      RecipeInfoSuccessState(
+        dataModel: recipeInfoScreenModel,
+      ),
+    );
   }
 
   void _handleDataAndExceptions({

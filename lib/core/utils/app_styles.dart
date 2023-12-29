@@ -57,7 +57,7 @@ abstract class AppStyles {
   /* Button Styles */
 
   static ButtonStyle buttonStyle({
-    Color backgroundColor = AppColors.primary,
+    Color backgroundColor = AppColors.primaryColor,
     Color foregroundColor = AppColors.white,
     double elevation = 0,
     double borderRadius = 8,
@@ -77,4 +77,22 @@ abstract class AppStyles {
       ),
     );
   }
+
+  // box decoration
+  static final BoxDecoration primaryBoxDecoration = BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(10),
+    boxShadow: const [
+      BoxShadow(
+        offset: Offset(-2, -2),
+        blurRadius: 12,
+        color: Color.fromRGBO(0, 0, 0, 0.05),
+      ),
+      BoxShadow(
+        offset: Offset(2, 2),
+        blurRadius: 5,
+        color: Color.fromRGBO(0, 0, 0, 0.10),
+      )
+    ],
+  );
 }
