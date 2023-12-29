@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:meal_snap/core/common/widgets/custom_text_widget.dart';
-import 'package:meal_snap/core/utils/app_styles.dart';
-import 'package:meal_snap/features/recipe_info/presentation/widgets/recipe_info_status_card.dart';
-import 'package:meal_snap/features/recipe_info/presentation/widgets/similar_list.dart';
 
 import '../../../../core/common/animation/animation.dart';
+import '../../../../core/common/enums.dart';
 import '../../../../core/common/widgets/custom_sliver_app_bar/custom_sliver_app_bar.dart';
+import '../../../../core/common/widgets/custom_text_widget.dart';
 import '../../../../core/utils/app_strings.dart';
+import '../../../../core/utils/app_styles.dart';
 import '../../data/models/recipe_info_screen_data_model.dart';
-import 'nutrients.dart';
 import 'recipe_info_section.dart';
+import 'recipe_info_status_card.dart';
 
 class RecipeInfoScreenBody extends StatelessWidget {
   final RecipeInfoScreenModel dataModel;
 
   const RecipeInfoScreenBody({
-    Key? key,
+    super.key,
     required this.dataModel,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +27,14 @@ class RecipeInfoScreenBody extends StatelessWidget {
           SliverPersistentHeader(
             delegate: CustomSliverAppBar(
               expandedHeight: 300,
-              info: dataModel.info,
+              info: dataModel.recipeInfoModel,
             ),
             pinned: true,
           ),
           // title
           buildPaddedSliverWidget(
             child: CustomTextWidget(
-              text: dataModel.info.title!,
+              text: dataModel.recipeInfoModel.title!,
               style: AppStyles.font24TelmaBold,
             ),
           ),
@@ -48,123 +47,51 @@ class RecipeInfoScreenBody extends StatelessWidget {
           buildPaddedSliverWidget(
             child: RecipeInfoSection(
               title: AppStrings.recipeInfoScreenModelIngredients,
-              data: dataModel.info.extendedIngredients!,
+              data: dataModel.recipeInfoModel.extendedIngredients!,
+              dataKey: RecipeInfoArgumentsKeys.ingredients,
             ),
-            padding: const EdgeInsets.all(25.0),
           ),
           // instructions
-          if (dataModel.info.instructions != null)
+          if (dataModel.recipeInfoModel.instructions != null)
             buildPaddedSliverWidget(
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Instructions",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  // Html(
-                  //   data: widget.info.instructions,
-                  //   style: {
-                  //     'p': Style(
-                  //       fontSize: FontSize.large,
-                  //       color: Colors.black,
-                  //     ),
-                  //   },
-                  // ),
-                ],
+              child: RecipeInfoSection(
+                title: AppStrings.recipeInfoInstructions,
+                data: dataModel.recipeInfoModel.instructions!,
+                dataKey: RecipeInfoArgumentsKeys.instructions,
               ),
-              padding: const EdgeInsets.all(26.0),
             ),
           // equipments
           buildPaddedSliverWidget(
             child: RecipeInfoSection(
               title: AppStrings.recipeInfoScreenModelEquipments,
-              data: dataModel.equipment,
+              data: dataModel.equipmentsList,
+              dataKey: RecipeInfoArgumentsKeys.equipments,
             ),
-
-            // Column(
-            //   children: [
-            //     if (dataModel.equipment.isNotEmpty)
-            //       Text(
-            //         "Equipments",
-            //         style: TextStyle(
-            //           fontWeight: FontWeight.bold,
-            //           fontSize: 20,
-            //         ),
-            //       ),
-            //     if (dataModel.equipment.isNotEmpty)
-            //       EquipmentsListView(
-            //         equipments: dataModel.equipment,
-            //       ),
-            //     // todo : RecipeInfoHorizontalListView
-            //   ],
-            // ),
-            padding: const EdgeInsets.all(26.0),
           ),
           // summary
-          if (dataModel.info.summary != null)
+          if (dataModel.recipeInfoModel.summary != null)
             buildPaddedSliverWidget(
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Quick summary",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  // Html(
-                  //   data: widget.info.summary,
-                  // ),
-                ],
+              child: RecipeInfoSection(
+                title: AppStrings.recipeInfoSummary,
+                data: dataModel.recipeInfoModel.summary!,
+                dataKey: RecipeInfoArgumentsKeys.summary,
               ),
-              padding: const EdgeInsets.all(26.0),
             ),
           // nutrients
           buildPaddedSliverWidget(
-            child: Column(
-              children: [
-                NutrientsWidgets(
-                  nutrient: dataModel.nutrient,
-                ),
-                NutrientsbadWidget(
-                  nutrient: dataModel.nutrient,
-                ),
-                NutrientsgoodWidget(
-                  nutrient: dataModel.nutrient,
-                ),
-                const SizedBox(height: 20),
-              ],
+            child: RecipeInfoSection(
+              title: AppStrings.recipeInfoNutrients,
+              data: dataModel.nutrientModel,
+              dataKey: RecipeInfoArgumentsKeys.nutrients,
             ),
           ),
           // similar
           buildPaddedSliverWidget(
-            child: Column(
-              children: [
-                if (dataModel.similarList.isNotEmpty)
-                  Text(
-                    "Similar items",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                if (dataModel.similarList.isNotEmpty)
-                  SimilarListWidget(items: dataModel.similarList),
-                const SizedBox(
-                  height: 40,
-                ),
-              ],
+            child: RecipeInfoSection(
+              title: AppStrings.recipeInfoSimilar,
+              data: dataModel.similarList,
+              dataKey: RecipeInfoArgumentsKeys.similar,
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 26),
           ),
         ],
       ),

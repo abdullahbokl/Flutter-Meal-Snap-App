@@ -23,7 +23,7 @@ class RecipeInfoStatusCard extends StatelessWidget {
           flex: 1,
           child: VerticalSection(
             text: "Ready in",
-            value: "${dataModel.info.readyInMinutes} Min",
+            value: "${dataModel.recipeInfoModel.readyInMinutes} Min",
           ),
         ),
         const VerticalDivider(),
@@ -31,7 +31,7 @@ class RecipeInfoStatusCard extends StatelessWidget {
           flex: 1,
           child: VerticalSection(
             text: "Serving",
-            value: "${dataModel.info.servings}",
+            value: "${dataModel.recipeInfoModel.servings}",
           ),
         ),
         const VerticalDivider(),
@@ -39,7 +39,7 @@ class RecipeInfoStatusCard extends StatelessWidget {
           flex: 1,
           child: VerticalSection(
             text: "Price/Servings",
-            value: "${dataModel.info.pricePerServing}",
+            value: "${dataModel.recipeInfoModel.pricePerServing}",
           ),
         )
       ],

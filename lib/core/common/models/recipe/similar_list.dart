@@ -1,18 +1,18 @@
-class Similar {
+class SimilarModel {
   final String id;
   final String name;
   final String image;
   final String readyInMinutes;
   final String servings;
-  Similar({
+  SimilarModel({
     required this.id,
     required this.name,
     required this.image,
     required this.readyInMinutes,
     required this.servings,
   });
-  factory Similar.fromJson(json) {
-    return Similar(
+  factory SimilarModel.fromJson(json) {
+    return SimilarModel(
       id: json['id'].toString(),
       name: json['title'] ?? '',
       image:
@@ -24,14 +24,14 @@ class Similar {
 }
 
 class SimilarList {
-  final List<Similar> list;
+  final List<SimilarModel> list;
   SimilarList({
     required this.list,
   });
 
   factory SimilarList.fromJson(List<dynamic> json) {
     return SimilarList(
-      list: json.map((data) => Similar.fromJson(data)).toList(),
+      list: json.map((data) => SimilarModel.fromJson(data)).toList(),
     );
   }
 }

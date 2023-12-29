@@ -6,7 +6,7 @@ class Step {
   int? number;
   String? step;
   List<Ingredient>? ingredients;
-  List<Equipment>? equipment;
+  List<EquipmentModel>? equipment;
   Length? length;
 
   Step({
@@ -24,7 +24,7 @@ class Step {
             ?.map((e) => Ingredient.fromJson(e))
             .toList(),
         equipment: (json['equipment'] as List<dynamic>?)
-            ?.map((e) => Equipment.fromJson(e))
+            ?.map((e) => EquipmentModel.fromJson(e))
             .toList(),
         length: json['length'] == null ? null : Length.fromJson(json['length']),
       );

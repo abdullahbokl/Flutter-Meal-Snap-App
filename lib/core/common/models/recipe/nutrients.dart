@@ -1,13 +1,11 @@
-import 'dart:convert';
-
-class Nutrient {
+class NutrientModel {
   final String calories;
   final String carbs;
   final String fat;
   final String protein;
   final List<Needs> good;
   final List<Needs> bad;
-  Nutrient({
+  NutrientModel({
     required this.calories,
     required this.carbs,
     required this.fat,
@@ -15,8 +13,8 @@ class Nutrient {
     required this.bad,
     required this.protein,
   });
-  factory Nutrient.fromJson(json) {
-    return Nutrient(
+  factory NutrientModel.fromJson(json) {
+    return NutrientModel(
       calories: json['calories'],
       carbs: json['carbs'],
       fat: json['fat'],

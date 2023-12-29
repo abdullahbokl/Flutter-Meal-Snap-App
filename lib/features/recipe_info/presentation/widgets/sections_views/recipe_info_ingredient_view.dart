@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../core/common/models/recipe/extended_ingredient.dart';
-import '../../../../core/common/widgets/custom_text_widget.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/app_styles.dart';
-import 'recipe_info_item_card.dart';
+import '../../../../../core/common/models/recipe/extended_ingredient.dart';
+import '../../../../../core/common/widgets/custom_text_widget.dart';
+import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/utils/app_styles.dart';
+import '../recipe_info_item_card.dart';
 
 class RecipeInfoIngredientView extends StatelessWidget {
   const RecipeInfoIngredientView({

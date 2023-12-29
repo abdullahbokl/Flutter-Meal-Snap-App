@@ -78,14 +78,18 @@ abstract class AppStrings {
   static const String searchResultModelImage = 'image';
 
   // recipe info screen model
-  static const String recipeInfoScreenModelIngredients = 'ingredients';
-  static const String recipeInfoScreenModelEquipments = 'equipments';
   static const String recipeInfoIngredientImageUrl =
       'https://spoonacular.com/cdn/ingredients_100x100/';
   static const String recipeInfoEquipmentImageUrl =
       "https://spoonacular.com/cdn/equipment_100x100/";
+  static const String recipeInfoScreenModelIngredients = 'Ingredients';
+  static const String recipeInfoScreenModelEquipments = 'Equipments';
   static const String recipeInfoConsistency = 'Consistency';
   static const String recipeInfoIngredientAisle = 'Aisle';
+  static const String recipeInfoInstructions = 'Instructions';
+  static const String recipeInfoSummary = 'Summary';
+  static const String recipeInfoNutrients = 'Nutrients';
+  static const String recipeInfoSimilar = 'Similar';
 
   // search auto complete model
   static const String searchAutoCompleteModelId = 'id';

@@ -42,10 +42,10 @@ class RecipeInfoBloc extends Bloc<RecipeInfoEvent, RecipeInfoState> {
     }
 
     final RecipeInfoScreenModel recipeInfoScreenModel = RecipeInfoScreenModel(
-      info: RecipeInfoModel.fromJson(handledData[0]),
+      recipeInfoModel: RecipeInfoModel.fromJson(handledData[0]),
       similarList: SimilarList.fromJson(handledData[1]).list,
-      equipment: EquipmentsList.fromJson(handledData[2]).items,
-      nutrient: Nutrient.fromJson(handledData[3]),
+      equipmentsList: EquipmentsList.fromJson(handledData[2]).items,
+      nutrientModel: NutrientModel.fromJson(handledData[3]),
     );
     emit(
       RecipeInfoSuccessState(

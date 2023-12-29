@@ -8,7 +8,7 @@ import '../../data/models/recipe_info_screen_arguments.dart';
 import '../bloc/recipe_info_bloc.dart';
 
 class SimilarListWidget extends StatelessWidget {
-  final List<Similar> items;
+  final List<SimilarModel> items;
 
   const SimilarListWidget({Key? key, required this.items}) : super(key: key);
 
@@ -36,7 +36,7 @@ class RecipeCardWidget extends StatefulWidget {
     required this.items,
   }) : super(key: key);
 
-  final Similar items;
+  final SimilarModel items;
 
   @override
   _RecipeCardWidgetState createState() => _RecipeCardWidgetState();

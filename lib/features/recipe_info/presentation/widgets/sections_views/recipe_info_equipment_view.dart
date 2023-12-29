@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/common/models/recipe/equipment.dart';
-import '../../../../core/utils/app_strings.dart';
-import 'recipe_info_item_card.dart';
+import '../../../../../core/common/models/recipe/equipment.dart';
+import '../../../../../core/utils/app_strings.dart';
+import '../recipe_info_item_card.dart';
 
 class RecipeInfoEquipmentView extends StatelessWidget {
   const RecipeInfoEquipmentView({
@@ -10,7 +10,7 @@ class RecipeInfoEquipmentView extends StatelessWidget {
     required this.equipment,
   });
 
-  final Equipment equipment;
+  final EquipmentModel equipment;
 
   @override
   Widget build(BuildContext context) {

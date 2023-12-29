@@ -40,7 +40,7 @@ class AppConstants {
         return AppColors.red;
       case ToastStates.success:
         return AppColors.green;
-      case ToastStates.warining:
+      case ToastStates.warning:
         return AppColors.primaryColor;
     }
   }

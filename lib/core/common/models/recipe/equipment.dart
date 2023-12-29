@@ -1,12 +1,12 @@
-class Equipment {
+class EquipmentModel {
   int? id;
   String? name;
   String? localizedName;
   String? image;
 
-  Equipment({this.id, this.name, this.localizedName, this.image});
+  EquipmentModel({this.id, this.name, this.localizedName, this.image});
 
-  factory Equipment.fromJson(json) => Equipment(
+  factory EquipmentModel.fromJson(json) => EquipmentModel(
         id: json['id'] as int?,
         name: json['name'] as String?,
         localizedName: json['localizedName'] as String?,
@@ -22,7 +22,7 @@ class Equipment {
 }
 
 class EquipmentsList {
-  final List<Equipment> items;
+  final List<EquipmentModel> items;
 
   EquipmentsList({
     required this.items,
@@ -30,7 +30,7 @@ class EquipmentsList {
 
   factory EquipmentsList.fromJson(List<dynamic> list) {
     return EquipmentsList(
-      items: list.map((data) => Equipment.fromJson(data)).toList(),
+      items: list.map((data) => EquipmentModel.fromJson(data)).toList(),
     );
   }
 }

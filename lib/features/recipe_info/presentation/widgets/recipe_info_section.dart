@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:meal_snap/core/utils/app_styles.dart';
+import 'package:meal_snap/features/recipe_info/presentation/widgets/recipe_info_section_list.dart';
+import 'package:meal_snap/features/recipe_info/presentation/widgets/sections_views/recipe_info_instructions_view.dart';
+import 'package:meal_snap/features/recipe_info/presentation/widgets/sections_views/recipe_info_nutrients_view.dart';
+import 'package:meal_snap/features/recipe_info/presentation/widgets/sections_views/recipe_info_summary_view.dart';
 
 import '../../../../core/common/animation/animation.dart';
-import '../../../../core/common/models/recipe/equipment.dart';
-import '../../../../core/common/models/recipe/extended_ingredient.dart';
-import 'recipe_info_equipment_view.dart';
-import 'recipe_info_ingredient_view.dart';
+import '../../../../core/common/enums.dart';
+import 'sections_views/recipe_info_similar_view.dart';
 
 class RecipeInfoSection extends StatelessWidget {
   const RecipeInfoSection({
     super.key,
     required this.title,
     required this.data,
+    required this.dataKey,
   });
 
   final String title;
   final dynamic data;
+
+  final RecipeInfoArgumentsKeys dataKey;
 
   @override
   Widget build(BuildContext context) {
@@ -33,40 +37,34 @@ class RecipeInfoSection extends StatelessWidget {
             ),
           ),
         ),
-        if ((data as List).isNotEmpty) ...[
-          const Gap(10),
-          DelayedDisplay(
-            delay: const Duration(microseconds: 600),
-            child: SizedBox(
-              height: 170.h,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.separated(
-                shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  switch (data.runtimeType) {
-                    case const (List<ExtendedIngredient>):
-                      return RecipeInfoIngredientView(
-                        ingredient: data[index],
-                      );
-                    case const (List<Equipment>):
-                      return RecipeInfoEquipmentView(
-                        equipment: data[index],
-                      );
+        const Gap(20),
+        DelayedDisplay(
+          delay: const Duration(microseconds: 600),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              switch (dataKey) {
+                case RecipeInfoArgumentsKeys.ingredients:
+                case RecipeInfoArgumentsKeys.equipments:
+                  return RecipeInfoSectionList(
+                    data: data,
+                    dataKey: dataKey,
+                  );
 
-                    default:
-                      return const SizedBox();
-                  }
-                },
-                separatorBuilder: (context, index) {
-                  return const Gap(10);
-                },
-                itemCount: (data as List).length,
-              ),
-            ),
+                case RecipeInfoArgumentsKeys.instructions:
+                  return RecipeInfoInstructionsView(instructions: data);
+                case RecipeInfoArgumentsKeys.summary:
+                  return RecipeInfoSummaryView(summary: data);
+                case RecipeInfoArgumentsKeys.nutrients:
+                  return RecipeInfoNutrientsView(nutrientModel: data);
+                case RecipeInfoArgumentsKeys.similar:
+                  return RecipeInfoSimilarView(similarList: data);
+
+                default:
+                  return const SizedBox();
+              }
+            },
           ),
-        ],
+        ),
       ],
     );
   }

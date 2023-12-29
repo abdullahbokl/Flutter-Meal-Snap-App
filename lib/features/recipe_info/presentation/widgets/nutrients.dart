@@ -4,7 +4,7 @@ import '../../../../core/common/models/recipe/nutrients.dart';
 import '../../../../core/common/widgets/custom_expandable_group.dart';
 
 class NutrientsWidgets extends StatelessWidget {
-  final Nutrient nutrient;
+  final NutrientModel nutrient;
 
   const NutrientsWidgets({Key? key, required this.nutrient}) : super(key: key);
 
@@ -133,7 +133,7 @@ class NutrientsWidgets extends StatelessWidget {
 }
 
 class NutrientsbadWidget extends StatelessWidget {
-  final Nutrient nutrient;
+  final NutrientModel nutrient;
 
   const NutrientsbadWidget({Key? key, required this.nutrient})
       : super(key: key);
@@ -180,7 +180,7 @@ class NutrientsbadWidget extends StatelessWidget {
 }
 
 class NutrientsgoodWidget extends StatelessWidget {
-  final Nutrient nutrient;
+  final NutrientModel nutrient;
 
   const NutrientsgoodWidget({Key? key, required this.nutrient})
       : super(key: key);
