@@ -80,7 +80,6 @@ class RecipeInfoScreenBody extends StatelessWidget {
           // nutrients
           buildPaddedSliverWidget(
             child: RecipeInfoSection(
-              title: AppStrings.recipeInfoNutrients,
               data: dataModel.nutrientModel,
               dataKey: RecipeInfoArgumentsKeys.nutrients,
             ),

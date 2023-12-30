@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/common/widgets/custom_scrollable_html_text.dart';
+
 class RecipeInfoSummaryView extends StatelessWidget {
   const RecipeInfoSummaryView({
     super.key,
@@ -10,22 +12,6 @@ class RecipeInfoSummaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Quick summary",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-        ),
-        SizedBox(height: 20),
-        // Html(
-        //   data: widget.info.summary,
-        // ),
-      ],
-    );
+    return CustomScrollableHtmlText(htmlString: summary);
   }
 }

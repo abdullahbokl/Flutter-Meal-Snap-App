@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_snap/core/utils/app_navigator.dart';
 
 import '../../../utils/app_styles.dart';
 import '../../models/recipe/recipe_model.dart';
@@ -25,7 +26,9 @@ class CustomAppBarIcons extends StatelessWidget {
       automaticallyImplyLeading: true,
       leading: CustomRoundedButton(
         icon: Icons.arrow_back,
-        onTap: () {},
+        onTap: () {
+          AppNavigator.pop();
+        },
       ),
       actions: [
         CustomRoundedButton(

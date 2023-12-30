@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/common/models/recipe/nutrients.dart';
-import '../nutrients.dart';
+import '../nutrients_widgets/nutrients_bad_widget.dart';
+import '../nutrients_widgets/nutrients_good_widget.dart';
+import '../nutrients_widgets/nutrients_widget.dart';
 
 class RecipeInfoNutrientsView extends StatelessWidget {
   const RecipeInfoNutrientsView({
@@ -15,16 +17,15 @@ class RecipeInfoNutrientsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        NutrientsWidgets(
+        NutrientsWidget(
           nutrient: nutrientModel,
         ),
-        NutrientsbadWidget(
+        NutrientsGoodWidget(
           nutrient: nutrientModel,
         ),
-        NutrientsgoodWidget(
+        NutrientsBadWidget(
           nutrient: nutrientModel,
         ),
-        const SizedBox(height: 20),
       ],
     );
   }

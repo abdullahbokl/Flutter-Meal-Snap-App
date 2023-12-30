@@ -57,7 +57,9 @@ abstract class AppNavigator {
   }
 
   static void pop() {
-    return navigatorKey.currentState!.pop();
+    if (navigatorKey.currentState!.canPop()) {
+      navigatorKey.currentState!.pop();
+    }
   }
 
   static removeAllAndPush(Widget page) {

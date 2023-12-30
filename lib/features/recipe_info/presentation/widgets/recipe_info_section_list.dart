@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:meal_snap/core/common/enums.dart';
 
+import '../../../../core/common/enums.dart';
 import 'sections_views/recipe_info_equipment_view.dart';
 import 'sections_views/recipe_info_ingredient_view.dart';
 
@@ -37,7 +37,7 @@ class RecipeInfoSectionList extends StatelessWidget {
               );
 
             default:
-              return const SizedBox();
+              return const SizedBox.shrink();
           }
         },
         separatorBuilder: (context, index) {

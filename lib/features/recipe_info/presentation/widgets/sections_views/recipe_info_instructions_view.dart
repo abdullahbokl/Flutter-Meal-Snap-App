@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
-import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/common/widgets/custom_scrollable_html_text.dart';
 
 class RecipeInfoInstructionsView extends StatelessWidget {
   const RecipeInfoInstructionsView({
@@ -13,28 +12,6 @@ class RecipeInfoInstructionsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppStrings.recipeInfoInstructions,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-        ),
-        Gap(20),
-        // Html(
-        //   data: widget.info.instructions,
-        //   style: {
-        //     'p': Style(
-        //       fontSize: FontSize.large,
-        //       color: Colors.black,
-        //     ),
-        //   },
-        // ),
-      ],
-    );
+    return CustomScrollableHtmlText(htmlString: instructions);
   }
 }

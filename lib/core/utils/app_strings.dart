@@ -89,7 +89,14 @@ abstract class AppStrings {
   static const String recipeInfoInstructions = 'Instructions';
   static const String recipeInfoSummary = 'Summary';
   static const String recipeInfoNutrients = 'Nutrients';
+  static const String recipeInfoBadForHealthNutrients =
+      'Bad for health Nutrients.';
+  static const String goodForHealthNutrients = 'good for health Nutrients.';
   static const String recipeInfoSimilar = 'Similar';
+  static const String recipeInfoCalories = 'Calories';
+  static const String recipeInfoFat = 'Fat';
+  static const String recipeInfoCarbohydrates = 'Carbohydrates';
+  static const String recipeInfoProtein = 'Protein';
 
   // search auto complete model
   static const String searchAutoCompleteModelId = 'id';
