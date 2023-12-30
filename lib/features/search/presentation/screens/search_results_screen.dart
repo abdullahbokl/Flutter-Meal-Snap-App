@@ -27,7 +27,7 @@ class SearchResultsScreen extends StatelessWidget {
         )),
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: customAppBar(title: AppStrings.appName),
+        appBar: customAppBar(title: AppStrings.appName, isShowBackButton: true),
         body: BlocBuilder<SearchResultsBloc, SearchResultsState>(
           builder: (context, state) {
             if (state is SearchResultsLoadingState) {

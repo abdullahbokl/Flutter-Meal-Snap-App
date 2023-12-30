@@ -20,30 +20,31 @@ class RecipeInfoScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          // app bar
-          SliverPersistentHeader(
-            delegate: CustomSliverAppBar(
-              expandedHeight: 300,
-              info: dataModel.recipeInfoModel,
-            ),
-            pinned: true,
+    return CustomScrollView(
+      slivers: [
+        // app bar
+        SliverPersistentHeader(
+          delegate: CustomSliverAppBar(
+            expandedHeight: 300,
+            info: dataModel.recipeInfoModel,
           ),
-          // title
-          buildPaddedSliverWidget(
-            child: CustomTextWidget(
-              text: dataModel.recipeInfoModel.title!,
-              style: AppStyles.font24TelmaBold,
-            ),
+          pinned: true,
+        ),
+        // title
+        buildPaddedSliverWidget(
+          child: CustomTextWidget(
+            text: dataModel.recipeInfoModel.title!,
+            style: AppStyles.font24TelmaBold,
           ),
-          // status card
-          buildPaddedSliverWidget(
-            child: RecipeInfoStatusCard(dataModel: dataModel),
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
-          ),
-          // ingredients
+        ),
+        // status card
+        buildPaddedSliverWidget(
+          child: RecipeInfoStatusCard(dataModel: dataModel),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
+        ),
+        // ingredients
+        if (dataModel.recipeInfoModel.extendedIngredients != null &&
+            dataModel.recipeInfoModel.extendedIngredients!.isNotEmpty)
           buildPaddedSliverWidget(
             child: RecipeInfoSection(
               title: AppStrings.recipeInfoScreenModelIngredients,
@@ -51,16 +52,17 @@ class RecipeInfoScreenBody extends StatelessWidget {
               dataKey: RecipeInfoArgumentsKeys.ingredients,
             ),
           ),
-          // instructions
-          if (dataModel.recipeInfoModel.instructions != null)
-            buildPaddedSliverWidget(
-              child: RecipeInfoSection(
-                title: AppStrings.recipeInfoInstructions,
-                data: dataModel.recipeInfoModel.instructions!,
-                dataKey: RecipeInfoArgumentsKeys.instructions,
-              ),
+        // instructions
+        if (dataModel.recipeInfoModel.instructions != null)
+          buildPaddedSliverWidget(
+            child: RecipeInfoSection(
+              title: AppStrings.recipeInfoInstructions,
+              data: dataModel.recipeInfoModel.instructions!,
+              dataKey: RecipeInfoArgumentsKeys.instructions,
             ),
-          // equipments
+          ),
+        // equipments
+        if (dataModel.equipmentsList.isNotEmpty)
           buildPaddedSliverWidget(
             child: RecipeInfoSection(
               title: AppStrings.recipeInfoScreenModelEquipments,
@@ -68,23 +70,24 @@ class RecipeInfoScreenBody extends StatelessWidget {
               dataKey: RecipeInfoArgumentsKeys.equipments,
             ),
           ),
-          // summary
-          if (dataModel.recipeInfoModel.summary != null)
-            buildPaddedSliverWidget(
-              child: RecipeInfoSection(
-                title: AppStrings.recipeInfoSummary,
-                data: dataModel.recipeInfoModel.summary!,
-                dataKey: RecipeInfoArgumentsKeys.summary,
-              ),
-            ),
-          // nutrients
+        // summary
+        if (dataModel.recipeInfoModel.summary != null)
           buildPaddedSliverWidget(
             child: RecipeInfoSection(
-              data: dataModel.nutrientModel,
-              dataKey: RecipeInfoArgumentsKeys.nutrients,
+              title: AppStrings.recipeInfoSummary,
+              data: dataModel.recipeInfoModel.summary!,
+              dataKey: RecipeInfoArgumentsKeys.summary,
             ),
           ),
-          // similar
+        // nutrients
+        buildPaddedSliverWidget(
+          child: RecipeInfoSection(
+            data: dataModel.nutrientModel,
+            dataKey: RecipeInfoArgumentsKeys.nutrients,
+          ),
+        ),
+        // similar
+        if (dataModel.similarList.isNotEmpty)
           buildPaddedSliverWidget(
             child: RecipeInfoSection(
               title: AppStrings.recipeInfoSimilar,
@@ -92,8 +95,7 @@ class RecipeInfoScreenBody extends StatelessWidget {
               dataKey: RecipeInfoArgumentsKeys.similar,
             ),
           ),
-        ],
-      ),
+      ],
     );
   }
 }

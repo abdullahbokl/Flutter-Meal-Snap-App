@@ -21,20 +21,22 @@ class RecipeInfoScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           getIt<RecipeInfoBloc>()..add(LoadRecipeInfoEvent(id: arguments.id)),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: BlocBuilder<RecipeInfoBloc, RecipeInfoState>(
-          builder: (context, state) {
-            if (state is RecipeInfoLoadingState) {
-              return const CustomLoadingIndicator();
-            } else if (state is RecipeInfoSuccessState) {
-              return RecipeInfoScreenBody(dataModel: state.dataModel);
-            } else if (state is RecipeInfoFailureState) {
-              return CustomErrorWidget(message: state.message);
-            } else {
-              return const CustomErrorWidget(message: 'Something went wrong');
-            }
-          },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: BlocBuilder<RecipeInfoBloc, RecipeInfoState>(
+            builder: (context, state) {
+              if (state is RecipeInfoLoadingState) {
+                return const CustomLoadingIndicator();
+              } else if (state is RecipeInfoSuccessState) {
+                return RecipeInfoScreenBody(dataModel: state.dataModel);
+              } else if (state is RecipeInfoFailureState) {
+                return CustomErrorWidget(message: state.message);
+              } else {
+                return const CustomErrorWidget(message: 'Something went wrong');
+              }
+            },
+          ),
         ),
       ),
     );

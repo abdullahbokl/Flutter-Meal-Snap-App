@@ -2,21 +2,21 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/common/models/recipe/similar_list.dart';
-import '../../../../core/common/widgets/custom_loading_indicator.dart';
-import '../../../../core/common/widgets/custom_text_widget.dart';
-import '../../../../core/utils/app_navigator.dart';
-import '../../../../core/utils/app_routes.dart';
-import '../../../../core/utils/app_styles.dart';
-import '../../data/models/recipe_info_screen_arguments.dart';
+import '../../../features/recipe_info/data/models/recipe_info_screen_arguments.dart';
+import '../../utils/app_navigator.dart';
+import '../../utils/app_routes.dart';
+import '../../utils/app_styles.dart';
+import '../models/food_type_model.dart';
+import 'custom_loading_indicator.dart';
+import 'custom_text_widget.dart';
 
-class RecipeInfoSimilarCard extends StatelessWidget {
-  const RecipeInfoSimilarCard({
+class CustomRecipeCard extends StatelessWidget {
+  const CustomRecipeCard({
     super.key,
-    required this.items,
+    required this.item,
   });
 
-  final SimilarModel items;
+  final FoodTypeModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class RecipeInfoSimilarCard extends StatelessWidget {
       onTap: () {
         AppNavigator.pushNamed(
           Routes.recipeInfoScreen,
-          arguments: RecipeInfoScreenArguments(id: items.id),
+          arguments: RecipeInfoScreenArguments(id: item.id),
         );
       },
       child: Container(
@@ -34,6 +34,7 @@ class RecipeInfoSimilarCard extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // image
                 ClipRRect(
@@ -42,7 +43,7 @@ class RecipeInfoSimilarCard extends StatelessWidget {
                     topRight: Radius.circular(10),
                   ),
                   child: CachedNetworkImage(
-                    imageUrl: items.image,
+                    imageUrl: item.image,
                     placeholder: (context, url) => const Center(
                       child: CustomLoadingIndicator(),
                     ),
@@ -62,7 +63,7 @@ class RecipeInfoSimilarCard extends StatelessWidget {
                       children: [
                         // title
                         CustomTextWidget(
-                          text: items.name,
+                          text: item.name,
                           style: AppStyles.font16SatoshiBold.copyWith(
                             color: Colors.black,
                             fontSize: 14,
@@ -71,14 +72,16 @@ class RecipeInfoSimilarCard extends StatelessWidget {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        const Spacer(),
-                        // ready in
-                        CustomTextWidget(
-                          text: "Ready in ${items.readyInMinutes} Min",
-                          style: AppStyles.font16SatoshiBold.copyWith(
-                            fontSize: 14,
+                        if (item.readyInMinutes != null) ...[
+                          const Spacer(),
+                          // ready in
+                          CustomTextWidget(
+                            text: "Ready in ${item.readyInMinutes} Min",
+                            style: AppStyles.font16SatoshiBold.copyWith(
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
+                        ],
                       ],
                     ),
                   ),

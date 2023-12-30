@@ -26,9 +26,7 @@ class CustomAppBarIcons extends StatelessWidget {
       automaticallyImplyLeading: true,
       leading: CustomRoundedButton(
         icon: Icons.arrow_back,
-        onTap: () {
-          AppNavigator.pop();
-        },
+        onTap: () => AppNavigator.pop(),
       ),
       actions: [
         CustomRoundedButton(

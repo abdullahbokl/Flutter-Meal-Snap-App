@@ -5,6 +5,7 @@ import 'package:meal_snap/core/utils/app_routes.dart';
 import 'package:meal_snap/core/utils/app_styles.dart';
 
 import '../../../../core/common/animation/animation.dart';
+import '../../../search/data/models/search_results_screen_arguments.dart';
 
 class HomeTypesTabBar extends StatelessWidget {
   const HomeTypesTabBar({Key? key}) : super(key: key);
@@ -64,7 +65,9 @@ class _ChipWidget extends StatelessWidget {
           onTap: () {
             AppNavigator.pushNamed(
               Routes.searchResultsScreen,
-              arguments: text,
+              arguments: SearchResultsScreenArguments(
+                typeName: text,
+              ),
             );
           },
           child: Container(

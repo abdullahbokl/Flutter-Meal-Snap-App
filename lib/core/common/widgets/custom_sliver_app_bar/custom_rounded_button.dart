@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 class CustomRoundedButton extends StatelessWidget {
   const CustomRoundedButton({
     super.key,
-    required this.icon,
+    this.icon,
+    this.child,
     required this.onTap,
     this.height,
     this.width,
     this.iconSize,
   });
 
-  final IconData icon;
+  final Widget? child;
+  final IconData? icon;
   final VoidCallback onTap;
 
   final double? height;
@@ -19,6 +21,9 @@ class CustomRoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if ((child != null && icon != null) || (child == null && icon == null)) {
+      throw Exception("You can't use both child and icon");
+    }
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -29,11 +34,12 @@ class CustomRoundedButton extends StatelessWidget {
           shape: BoxShape.circle,
           color: Colors.white,
         ),
-        child: Icon(
-          icon,
-          color: Colors.black,
-          size: iconSize,
-        ),
+        child: child ??
+            Icon(
+              icon,
+              color: Colors.black,
+              size: iconSize,
+            ),
       ),
     );
   }

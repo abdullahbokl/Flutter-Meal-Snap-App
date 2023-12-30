@@ -4,15 +4,15 @@ class FoodTypeModel {
   final String id;
   final String name;
   final String image;
-  final String readyInMinutes;
-  final String servings;
+  final String? readyInMinutes;
+  final String? servings;
 
   FoodTypeModel({
     required this.id,
     required this.name,
     required this.image,
-    required this.readyInMinutes,
-    required this.servings,
+    this.readyInMinutes,
+    this.servings,
   });
 
   factory FoodTypeModel.fromJson(json) {

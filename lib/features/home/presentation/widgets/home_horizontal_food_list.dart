@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/common/models/food_type_model.dart';
-import 'home_horizontal_food_list_card.dart';
+import '../../../../core/common/widgets/custom_recipe_card.dart';
 
 class HomeHorizontalFoodList extends StatelessWidget {
   final List<FoodTypeModel> items;
@@ -16,16 +16,16 @@ class HomeHorizontalFoodList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 290.h,
-      child: ListView(
+      height: 275.h,
+      child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        children: [
-          const Gap(20),
-          ...items.map((item) {
-            return HomeHorizontalFoodListCard(items: item);
-          }).toList()
-        ],
+        itemBuilder: (context, index) {
+          return CustomRecipeCard(item: items[index]);
+        },
+        separatorBuilder: (context, index) {
+          return const Gap(15);
+        },
+        itemCount: items.length,
       ),
     );
   }

@@ -18,7 +18,7 @@ import 'service_locator.dart';
 
 class Routes {
   // splash
-  static const String initialRoute = '/a';
+  static const String initialRoute = '/';
   static const String changeLangScreen = '/changeLangScreen';
 
   // auth
@@ -30,8 +30,7 @@ class Routes {
   static const String navBarScreen = '/navBarScreen';
   static const String homeScreen = '/homeScreen';
 
-  // static const String recipeInfoScreen = '/recipeInfoScreen';
-  static const String recipeInfoScreen = '/';
+  static const String recipeInfoScreen = '/recipeInfoScreen';
   static const String searchResultsScreen = '/searchResultsScreen';
   static const String searchScreen = '/searchScreen';
   static const String favoriteScreen = '/favoriteScreen';
@@ -75,7 +74,7 @@ class AppRoutes {
       case Routes.recipeInfoScreen:
         return MaterialPageRoute(
           builder: (_) => RecipeInfoScreen(
-            arguments: RecipeInfoScreenArguments(id: "1"),
+            arguments: routeSettings.arguments as RecipeInfoScreenArguments,
             // arguments: routeSettings.arguments as RecipeInfoScreenArguments,
           ),
         );
