@@ -29,14 +29,15 @@ class AppLangCubit extends Cubit<AppLangState> {
   AppLanguagesCodes getLocale() {
     currentLocale = AppLanguagesCodes.en;
     try {
-      final code = getIt<CacheServices>().getData(
-        key: AppStrings.keyNameAppLanguage,
+      final String? code = getIt<CacheServices>().getData(
+        boxName: AppStrings.hiveAppLocaleBox,
+        key: AppStrings.keyNameAppLocaleKey,
       );
       if (code != null) {
         currentLocale = findLangEnum(code);
       }
     } catch (e) {
-      log('error getting the language from shared pref : $e');
+      log('error getting the language from shared hive : $e');
     }
     return currentLocale;
   }
@@ -44,11 +45,12 @@ class AppLangCubit extends Cubit<AppLangState> {
   Future<void> saveLocale() async {
     try {
       await getIt<CacheServices>().saveData(
-        key: AppStrings.keyNameAppLanguage,
+        key: AppStrings.keyNameAppLocaleKey,
         value: currentLocale.name,
+        boxName: AppStrings.hiveAppLocaleBox,
       );
     } catch (e) {
-      log('error saving the language to shared pref : $e');
+      log('error saving the language to hive : $e');
     }
   }
 

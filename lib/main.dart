@@ -49,12 +49,16 @@ Future<void> _appInit() async {
   );
   Bloc.observer = MyBlocObserver();
   await dotenv.load(fileName: ".env");
+  await _hiveInit();
   await initServiceLocator();
   AppConstants.appLocalizations = await getIt<AppLangCubit>().initAppLocale();
-  await _hiveInit();
 }
 
 Future<void> _hiveInit() async {
   await Hive.initFlutter();
-  await Hive.openBox(AppStrings.hiveFavoriteBox);
+  await Future.wait([
+    Hive.openBox(AppStrings.hiveFavoriteBox),
+    Hive.openBox(AppStrings.hiveLoginBox),
+    Hive.openBox(AppStrings.hiveAppLocaleBox),
+  ]);
 }

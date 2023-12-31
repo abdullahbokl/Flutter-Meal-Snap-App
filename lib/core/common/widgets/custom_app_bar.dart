@@ -16,7 +16,7 @@ PreferredSizeWidget customAppBar({
     elevation: 0,
     backgroundColor: AppColors.white,
     iconTheme: const IconThemeData(
-      color: AppColors.secondaryColor,
+      color: AppColors.primaryColor,
     ),
     leading: isShowBackButton ? const CustomBackButton() : null,
     title: title != null

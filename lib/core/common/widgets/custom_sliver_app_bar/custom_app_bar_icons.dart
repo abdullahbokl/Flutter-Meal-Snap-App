@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:meal_snap/core/common/animation/animation.dart';
-import 'package:meal_snap/core/utils/app_navigator.dart';
-import 'package:meal_snap/core/utils/app_strings.dart';
+import 'package:share/share.dart';
 
+import '../../../utils/app_navigator.dart';
+import '../../../utils/app_strings.dart';
 import '../../../utils/app_styles.dart';
+import '../../animation/animation.dart';
 import '../../models/recipe/recipe_model.dart';
 import '../custom_text_widget.dart';
 import 'custom_rounded_button.dart';
@@ -53,11 +54,10 @@ class CustomAppBarIcons extends StatelessWidget {
               width: 40,
               icon: Icons.share,
               onTap: () {
-                // todo share link
-                // const url = "";
-                // Share.share(
-                //   'check out This tasty recipe $url',
-                // );
+                const url = "";
+                Share.share(
+                  'check out This tasty recipe $url',
+                );
               },
             ),
           )!,
@@ -91,16 +91,16 @@ class CustomAppBarIcons extends StatelessWidget {
                 ),
                 if (appBarOpacity == 0)
                   DelayedDisplay(
-                      child: CustomRoundedButton(
-                    icon: Icons.share,
-                    onTap: () {
-                      // todo share link
-                      // const url = "";
-                      // Share.share(
-                      //   'check out This tasty recipe $url',
-                      // );
-                    },
-                  )),
+                    child: CustomRoundedButton(
+                      icon: Icons.share,
+                      onTap: () {
+                        const url = "";
+                        Share.share(
+                          'check out This tasty recipe $url',
+                        );
+                      },
+                    ),
+                  ),
               ],
             ),
           ),

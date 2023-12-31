@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meal_snap/core/utils/app_strings.dart';
 
 import '../../../../core/common/functions/url_launcher.dart';
 import '../../../../core/common/widgets/custom_expandable_group.dart';
+import '../../../../core/utils/app_strings.dart';
 
 class MoreAppInfo extends StatelessWidget {
   const MoreAppInfo({
@@ -13,7 +13,7 @@ class MoreAppInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomExpandableGroup(
       isExpanded: false,
-      collapsedIcon: Icon(Icons.arrow_drop_down),
+      collapsedIcon: const Icon(Icons.arrow_drop_down),
       header: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: Text(
@@ -52,13 +52,6 @@ class MoreAppInfo extends StatelessWidget {
         ),
         const ListTile(
           title: Text(AppStrings.appInfo8),
-        ),
-        ListTile(
-          onTap: () {
-            launchUrlMethod("https://spoonacular.com/food-api");
-          },
-          title: const Text('with open source spoonacular api',
-              style: TextStyle(color: Colors.blue)),
         ),
       ],
     );

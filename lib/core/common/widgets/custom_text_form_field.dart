@@ -27,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      cursorColor: AppColors.primaryColor,
+      cursorColor: AppColors.secondaryColor,
       validator: validate,
       obscureText: isPassword,
       decoration: InputDecoration(
@@ -38,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
           onPressed: suffixIconOnPressed,
           icon: Icon(
             icon,
-            color: AppColors.primaryColor,
+            color: AppColors.secondaryColor,
           ),
         ),
       ),

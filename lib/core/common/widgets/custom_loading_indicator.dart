@@ -12,7 +12,7 @@ class CustomLoadingIndicator extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return DecoratedBox(
           decoration: BoxDecoration(
-            color: index.isEven ? AppColors.primaryColor : AppColors.black12,
+            color: index.isEven ? AppColors.secondaryColor : AppColors.black12,
           ),
         );
       },

@@ -41,7 +41,7 @@ class AppConstants {
       case ToastStates.success:
         return AppColors.green;
       case ToastStates.warning:
-        return AppColors.primaryColor;
+        return AppColors.secondaryColor;
     }
   }
 

@@ -9,11 +9,13 @@ abstract class AppStrings {
 
   // Hive
   static const String hiveFavoriteBox = 'Favorite';
+  static const String hiveLoginBox = 'Login';
+  static const String hiveAppLocaleBox = 'AppLocale';
 
-  // shared preferences keys
-  static const String keyNameAppLanguage = 'app_language';
-  static const String prefsId = 'id';
-  static const String prefsToken = 'token';
+  // hive keys
+  static const String hiveIdKey = 'id';
+  static const String hiveTokenKey = 'token';
+  static const String keyNameAppLocaleKey = 'appLocale';
 
   // API
   static const String apiKey = "apiKey";
@@ -50,6 +52,9 @@ abstract class AppStrings {
   static const String signUpModelName = 'name';
   static const String signUpModelEmail = 'email';
   static const String signUpModelPassword = 'password';
+
+  // sign out
+  static const String signOut = 'Sign Out';
 
   // food model
   static const String foodModelId = 'id';

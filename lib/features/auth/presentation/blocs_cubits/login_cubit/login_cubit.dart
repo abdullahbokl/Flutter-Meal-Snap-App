@@ -62,13 +62,15 @@ class LoginCubit extends Cubit<LoginState> {
     final Account account = Account(getIt<Client>());
     final Jwt userToken = await account.createJWT();
     await getIt<CacheServices>().saveData(
-      key: AppStrings.prefsToken,
+      key: AppStrings.hiveTokenKey,
       value: userToken.jwt,
+      boxName: AppStrings.hiveLoginBox,
     );
     // save id
     await getIt<CacheServices>().saveData(
-      key: AppStrings.prefsId,
+      key: AppStrings.hiveIdKey,
       value: user.$id,
+      boxName: AppStrings.hiveLoginBox,
     );
   }
 }

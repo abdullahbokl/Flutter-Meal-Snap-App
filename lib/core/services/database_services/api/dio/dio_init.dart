@@ -34,7 +34,10 @@ class _ApiInterceptors extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     log("Request Url: ${options.uri}");
     options.queryParameters[AppStrings.apiToken] =
-        getIt<CacheServices>().getData(key: AppStrings.apiToken);
+        getIt<CacheServices>().getData(
+      boxName: AppStrings.hiveLoginBox,
+      key: AppStrings.apiToken,
+    );
     super.onRequest(options, handler);
   }
 
