@@ -6,9 +6,11 @@ class CustomErrorWidget extends StatelessWidget {
   const CustomErrorWidget({
     super.key,
     required this.message,
+    this.iconData,
   });
 
   final String message;
+  final IconData? iconData;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,8 @@ class CustomErrorWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Icon(
-            Icons.error,
+          Icon(
+            iconData ?? Icons.error,
             color: Colors.red,
             size: 60,
           ),

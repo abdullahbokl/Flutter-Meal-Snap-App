@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meal_snap/features/search/presentation/blocs_cubits/search_cubit/search_cubit.dart';
 
 import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
 import '../../features/auth/presentation/screens/change_lang_screen.dart';
@@ -8,20 +7,17 @@ import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/auth/presentation/screens/send_code_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
-import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/nav_bar/presentation/screens/nav_bar_screen.dart';
 import '../../features/recipe_info/data/models/recipe_info_screen_arguments.dart';
 import '../../features/recipe_info/presentation/screens/recipe_info_screen.dart';
 import '../../features/search/data/models/search_results_screen_arguments.dart';
 import '../../features/search/presentation/screens/search_results_screen.dart';
-import '../../features/search/presentation/screens/search_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 import 'service_locator.dart';
 
 class Routes {
   // splash
-  // static const String initialRoute = '/';
-  static const String initialRoute = '/a';
+  static const String initialRoute = '/';
   static const String changeLangScreen = '/changeLangScreen';
 
   // auth
@@ -29,17 +25,15 @@ class Routes {
   static const String sendCodeScreen = '/sendCodeScreen';
   static const String restPasswordScreen = '/restPasswordScreen';
 
-  // nav bar
-  static const String navBarScreen = '/navBarScreen';
-  static const String homeScreen = '/homeScreen';
-
   static const String recipeInfoScreen = '/recipeInfoScreen';
   static const String searchResultsScreen = '/searchResultsScreen';
 
+  // nav bar
+  static const String navBarScreen = '/navBarScreen';
+  // static const String homeScreen = '/homeScreen';
   // static const String searchScreen = '/searchScreen';
-  static const String searchScreen = '/';
-  static const String favoriteScreen = '/favoriteScreen';
-  static const String moreScreen = '/moreScreen';
+  // static const String favoriteScreen = '/favoriteScreen';
+  // static const String moreScreen = '/moreScreen';
 }
 
 class AppRoutes {
@@ -72,10 +66,10 @@ class AppRoutes {
       case Routes.restPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
 
-      // home
-      case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
-
+      // // home
+      // case Routes.homeScreen:
+      //   return MaterialPageRoute(builder: (_) => const HomeScreen());
+      //
       case Routes.recipeInfoScreen:
         return MaterialPageRoute(
           builder: (_) => RecipeInfoScreen(
@@ -83,15 +77,15 @@ class AppRoutes {
             // arguments: routeSettings.arguments as RecipeInfoScreenArguments,
           ),
         );
-
-      // search
-      case Routes.searchScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<SearchCubit>(),
-            child: const SearchScreen(),
-          ),
-        );
+      //
+      // // search
+      // case Routes.searchScreen:
+      //   return MaterialPageRoute(
+      //     builder: (_) => BlocProvider(
+      //       create: (context) => getIt<SearchCubit>(),
+      //       child: const SearchScreen(),
+      //     ),
+      //   );
       case Routes.searchResultsScreen:
         return MaterialPageRoute(
           builder: (_) => SearchResultsScreen(

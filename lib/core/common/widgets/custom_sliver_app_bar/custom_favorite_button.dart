@@ -12,14 +12,14 @@ class CustomFavoriteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box>(
-      valueListenable: Hive.box(AppStrings.favoriteBox).listenable(),
+      valueListenable: Hive.box(AppStrings.hiveFavoriteBox).listenable(),
       builder: (context, box, child) {
         bool isFavorite = box.containsKey(info.id);
         if (isFavorite) {
           return FloatingActionButton(
             backgroundColor: Theme.of(context).primaryColor,
             onPressed: () {
-              final box = Hive.box(AppStrings.favoriteBox);
+              final box = Hive.box(AppStrings.hiveFavoriteBox);
               box.delete(info.id);
             },
             child: const Icon(
@@ -30,7 +30,7 @@ class CustomFavoriteButton extends StatelessWidget {
           return FloatingActionButton(
             backgroundColor: Colors.grey,
             onPressed: () {
-              final box = Hive.box(AppStrings.favoriteBox);
+              final box = Hive.box(AppStrings.hiveFavoriteBox);
               box.put(info.id, info.toJson());
             },
             child: const Icon(

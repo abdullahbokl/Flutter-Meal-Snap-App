@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:meal_snap/features/search/data/models/search_results_screen_arguments.dart';
 
 import '../../../../../core/common/widgets/custom_text_widget.dart';
 import '../../../../../core/utils/app_navigator.dart';
@@ -8,6 +7,7 @@ import '../../../../../core/utils/app_routes.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../data/models/search_list_tile_model.dart';
+import '../../../data/models/search_results_screen_arguments.dart';
 import 'search_custom_list_tile.dart';
 
 class SearchRecipesByCategories extends StatelessWidget {

@@ -56,5 +56,5 @@ Future<void> _appInit() async {
 
 Future<void> _hiveInit() async {
   await Hive.initFlutter();
-  await Hive.openBox(AppStrings.favoriteBox);
+  await Hive.openBox(AppStrings.hiveFavoriteBox);
 }

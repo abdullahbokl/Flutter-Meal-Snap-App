@@ -8,7 +8,7 @@ abstract class AppStrings {
   static const String envAppWriteApiKey = 'APPWRITE_API_KEY';
 
   // Hive
-  static const String favoriteBox = 'Favorite';
+  static const String hiveFavoriteBox = 'Favorite';
 
   // shared preferences keys
   static const String keyNameAppLanguage = 'app_language';
@@ -83,6 +83,10 @@ abstract class AppStrings {
   static const String recipeInfoFat = 'Fat';
   static const String recipeInfoCarbohydrates = 'Carbohydrates';
   static const String recipeInfoProtein = 'Protein';
+
+  // favorite screen
+  // No favorite recipes yet
+  static const String favoriteNoFavoriteRecipe = "No favorite recipes yet.";
 
   // search auto complete model
   static const String searchAutoCompleteModelId = 'id';

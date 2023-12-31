@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../core/common/animation/animation.dart';
-import '../../../../core/common/models/food_type_model.dart';
-import '../../../../core/common/widgets/custom_text_widget.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../features/recipe_info/data/models/recipe_info_screen_arguments.dart';
+import '../../utils/app_navigator.dart';
+import '../../utils/app_routes.dart';
+import '../../utils/app_styles.dart';
+import '../animation/animation.dart';
+import '../models/food_type_model.dart';
+import 'custom_text_widget.dart';
 
-class HomeVerticalFoodListCard extends StatelessWidget {
-  const HomeVerticalFoodListCard({
+class CustomFoodListCard extends StatelessWidget {
+  const CustomFoodListCard({
     super.key,
     required this.foodTypeModel,
   });
@@ -22,18 +25,10 @@ class HomeVerticalFoodListCard extends StatelessWidget {
       delay: const Duration(microseconds: 600),
       child: InkWell(
         onTap: () {
-          // todo : navigate to item details
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => BlocProvider(
-          //       create: (context) => RecipeInfoBloc(),
-          //       child: RecipeInfo(
-          //         id: widget.meal.id,
-          //       ),
-          //     ),
-          //   ),
-          // );
+          AppNavigator.pushNamed(
+            Routes.recipeInfoScreen,
+            arguments: RecipeInfoScreenArguments(id: foodTypeModel.id),
+          );
         },
         child: Container(
           height: 90.h,

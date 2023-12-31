@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/service_locator.dart';
 import '../../../favorite/presentation/screens/favorite_screen.dart';
 import '../../../home/presentation/screens/home_screen.dart';
 import '../../../more/presentation/screens/more_screen.dart';
+import '../../../search/presentation/blocs_cubits/search_cubit/search_cubit.dart';
 import '../../../search/presentation/screens/search_screen.dart';
 
 part 'nav_bar_state.dart';
@@ -17,7 +19,10 @@ class NavBarCubit extends Cubit<NavBarState> {
 
   final List<Widget> nabBarScreens = [
     const HomeScreen(),
-    const SearchScreen(),
+    BlocProvider(
+      create: (context) => getIt<SearchCubit>(),
+      child: const SearchScreen(),
+    ),
     const FavoriteScreen(),
     const MoreScreen(),
   ];

@@ -80,10 +80,11 @@ class CustomAppBarIcons extends StatelessWidget {
               children: [
                 if (appBarOpacity == 0)
                   DelayedDisplay(
-                      child: CustomRoundedButton(
-                    icon: Icons.arrow_back,
-                    onTap: () => AppNavigator.pop(),
-                  )),
+                    child: CustomRoundedButton(
+                      icon: Icons.arrow_back,
+                      onTap: () => AppNavigator.pop(),
+                    ),
+                  ),
                 const CustomTextWidget(
                   text: AppStrings.appName,
                   style: AppStyles.font24TelmaBold,

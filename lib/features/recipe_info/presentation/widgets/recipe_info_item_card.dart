@@ -34,10 +34,11 @@ class RecipeInfoItemCard extends StatelessWidget {
               shape: BoxShape.circle,
               color: Colors.white,
               image: DecorationImage(
-                  fit: BoxFit.contain,
-                  image: CachedNetworkImageProvider(
-                    imageUrl,
-                  )),
+                fit: BoxFit.contain,
+                image: CachedNetworkImageProvider(
+                  imageUrl,
+                ),
+              ),
             )),
         const Gap(10),
         LimitedBox(
