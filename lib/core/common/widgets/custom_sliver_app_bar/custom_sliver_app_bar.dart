@@ -22,8 +22,12 @@ class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     final appBarSize = maxExtent - shrinkOffset;
-    final proportion = 2 - (maxExtent / appBarSize);
-    final percent = proportion < 0 || proportion > 1 ? 0.0 : proportion;
+    final proportion = 2 -
+        (maxExtent /
+            appBarSize); // proportion refers to the percentage of the screen that is covered by the app bar
+    final percent = proportion < 0 || proportion > 1
+        ? 0.0
+        : proportion; // percent refers to the percentage of the screen that is covered by the app bar, but it is capped at 0 and 1
     return ConstrainedBox(
       constraints: BoxConstraints(minHeight: maxExtent),
       child: Stack(
