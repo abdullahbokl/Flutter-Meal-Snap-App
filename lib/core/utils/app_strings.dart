@@ -85,7 +85,6 @@ abstract class AppStrings {
   static const String recipeInfoProtein = 'Protein';
 
   // favorite screen
-  // No favorite recipes yet
   static const String favoriteNoFavoriteRecipe = "No favorite recipes yet.";
 
   // search auto complete model
@@ -111,9 +110,6 @@ abstract class AppStrings {
   static const String noDataFound = 'No data found';
   static const String noInternetConnection = 'No internet connection';
   static const String somethingWentWrong = 'Something went wrong';
-
-  // App General Strings
-  static const String search = 'Search';
 
   // meal types
   static const String appetizer = "appetizer";
@@ -158,4 +154,30 @@ abstract class AppStrings {
   static const String stirFry = "Stir Fry";
   static const String turkey = "Turkey";
   static const String vegetarian = "Vegetarian";
+
+  // App General Strings
+  static const String search = 'Search';
+  static const String termsOfUse = 'Terms of Use';
+  static const String features = 'Features';
+  static const String appInformation = 'App Information';
+
+  // App features
+  static const String feature1 = 'App includes 5,000+ recipes.';
+  static const String feature2 = 'related recipes.';
+  static const String feature3 =
+      'Search recipes by name, ingredients, or type.';
+  static const String feature4 = 'Save your favorite recipes.';
+  static const String feature5 = 'Nutrition information for each meal.';
+
+  static const String appInfo1 = 'App follows MVVM architecture.';
+  static const String appInfo2 = 'App Created with Flutter bloc library.';
+  static const String appInfo3 =
+      'App Created with open source spoonacular api.';
+  static const String appInfo4 =
+      'App Created with Appwrite for authentication.';
+  static const String appInfo5 = 'App supports localization.';
+  static const String appInfo6 = 'App supports light and dark theme.';
+  static const String appInfo7 = 'App uses Hive for local storage.';
+  static const String appInfo8 = 'App checks internet connection.';
+  static const String sourceCode = 'Socure code of application';
 }
