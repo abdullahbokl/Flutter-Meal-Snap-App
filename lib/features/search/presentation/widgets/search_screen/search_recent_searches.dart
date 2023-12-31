@@ -1,44 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:meal_snap/core/common/widgets/custom_text_widget.dart';
 
 import '../../../../../core/common/widgets/custom_chip_widget.dart';
+import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/utils/app_styles.dart';
 
+// "Recent searches by people",
 class SearchRecentSearches extends StatelessWidget {
   const SearchRecentSearches({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
-          child: Text(
-            "Recent searches by people",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+        CustomTextWidget(
+          text: AppStrings.recentSearchesByPeople,
+          style: AppStyles.font20SatoshiW500.copyWith(
+            color: Colors.black,
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Wrap(
-            alignment: WrapAlignment.start,
-            children: [
-              ChipWidget("Baking"),
-              ChipWidget("Vegetarian"),
-              ChipWidget("Sauces"),
-              ChipWidget("Meat"),
-              ChipWidget("Turkey"),
-              ChipWidget("Chicken"),
-              ChipWidget("Sausages"),
-              ChipWidget("Mince"),
-              ChipWidget("Burgers"),
-              ChipWidget("Pasta"),
-              ChipWidget("Noodles"),
-              ChipWidget("Pizza"),
-              ChipWidget("Soups"),
-            ],
-          ),
+        const Wrap(
+          alignment: WrapAlignment.start,
+          children: [
+            ChipWidget(AppStrings.baking),
+            ChipWidget(AppStrings.vegetarian),
+            ChipWidget(AppStrings.sauces),
+            ChipWidget(AppStrings.meat),
+            ChipWidget(AppStrings.turkey),
+            ChipWidget(AppStrings.chicken),
+            ChipWidget(AppStrings.sausages),
+            ChipWidget(AppStrings.mince),
+            ChipWidget(AppStrings.burgers),
+            ChipWidget(AppStrings.pasta),
+            ChipWidget(AppStrings.noodles),
+            ChipWidget(AppStrings.pizza),
+            ChipWidget(AppStrings.soups),
+          ],
         ),
       ],
     );

@@ -1,18 +1,18 @@
 import 'package:meal_snap/core/utils/app_strings.dart';
 
-class SearchAutoCompleteModel {
+class SearchListTileModel {
   final String id;
   final String name;
   final String image;
 
-  SearchAutoCompleteModel({
+  SearchListTileModel({
     required this.id,
     required this.name,
     required this.image,
   });
 
-  factory SearchAutoCompleteModel.fromJson(json) {
-    return SearchAutoCompleteModel(
+  factory SearchListTileModel.fromJson(json) {
+    return SearchListTileModel(
       id: json[AppStrings.searchAutoCompleteModelId].toString(),
       name: json[AppStrings.searchAutoCompleteModelName],
       // image: json[searchAutoCompleteModelImage],

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/common/enums.dart';
 import '../../../../../core/utils/service_locator.dart';
-import '../../../data/models/search_auto_complete_model.dart';
+import '../../../data/models/search_list_tile_model.dart';
 import '../../../data/repositories/search_repo.dart';
 
 part 'search_state.dart';

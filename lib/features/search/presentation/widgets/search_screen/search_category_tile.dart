@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:meal_snap/core/utils/app_styles.dart';
 
 import '../../../../../core/common/animation/animation.dart';
 
@@ -18,28 +19,19 @@ class CategoryTile extends StatelessWidget {
         delay: const Duration(microseconds: 600),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
-          decoration: BoxDecoration(boxShadow: const [
-            BoxShadow(
-              offset: Offset(-2, -2),
-              blurRadius: 12,
-              color: Color.fromRGBO(0, 0, 0, 0.05),
-            ),
-            BoxShadow(
-              offset: Offset(2, 2),
-              blurRadius: 5,
-              color: Color.fromRGBO(0, 0, 0, 0.10),
-            )
-          ], borderRadius: BorderRadius.circular(10), color: Colors.white),
+          decoration: AppStyles.primaryBoxDecoration,
           child: ListTile(
               leading: Container(
                   width: 100,
                   height: 60,
                   decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          image: CachedNetworkImageProvider(image),
-                          fit: BoxFit.cover))),
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: CachedNetworkImageProvider(image),
+                      fit: BoxFit.cover,
+                    ),
+                  )),
               onTap: () {
                 // Navigator.of(context).push(
                 //   MaterialPageRoute(

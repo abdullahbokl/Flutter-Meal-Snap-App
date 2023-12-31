@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../../../core/errors/server_exceptions.dart';
 import '../../../../core/services/database_services/api/api_services.dart';
 import '../../../../core/utils/app_strings.dart';
-import '../models/search_auto_complete_model.dart';
+import '../models/search_list_tile_model.dart';
 import '../models/search_result_model.dart';
 
 abstract class SearchRepo {
@@ -13,7 +13,7 @@ abstract class SearchRepo {
     required int no,
   });
 
-  Future<Either<ServerExceptions, List<SearchAutoCompleteModel>>>
+  Future<Either<ServerExceptions, List<SearchListTileModel>>>
       getAutoCompleteList({
     required String searchText,
   });
@@ -58,7 +58,7 @@ class SearchRepoImpl implements SearchRepo {
   }
 
   @override
-  Future<Either<ServerExceptions, List<SearchAutoCompleteModel>>>
+  Future<Either<ServerExceptions, List<SearchListTileModel>>>
       getAutoCompleteList({
     required String searchText,
   }) async {
@@ -75,9 +75,9 @@ class SearchRepoImpl implements SearchRepo {
         },
       );
       if (response != null) {
-        final List<SearchAutoCompleteModel> list = [];
+        final List<SearchListTileModel> list = [];
         for (final v in response) {
-          list.add(SearchAutoCompleteModel.fromJson(v));
+          list.add(SearchListTileModel.fromJson(v));
         }
         if (list.isNotEmpty) {
           return Right(list);

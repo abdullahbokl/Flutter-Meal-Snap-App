@@ -3,7 +3,7 @@ part of 'search_cubit.dart';
 class SearchState extends Equatable {
   final Status status;
   final String searchText;
-  final List<SearchAutoCompleteModel> searchList;
+  final List<SearchListTileModel> searchList;
 
   const SearchState({
     required this.status,
@@ -29,7 +29,7 @@ class SearchState extends Equatable {
   SearchState copyWith({
     Status? status,
     String? searchText,
-    List<SearchAutoCompleteModel>? searchList,
+    List<SearchListTileModel>? searchList,
   }) {
     return SearchState(
       status: status ?? this.status,

@@ -101,6 +101,7 @@ abstract class AppStrings {
 
   // search screen
   static const String searchRecipesByCategories = 'Recipes by categories';
+  static const String recentSearchesByPeople = "Recent searches by people";
 
   // error messages
   static const String noDataFound = 'No data found';
@@ -109,4 +110,48 @@ abstract class AppStrings {
 
   // App General Strings
   static const String search = 'Search';
+
+  // meal types
+  static const String appetizer = "appetizer";
+  static const String beverage = "beverage";
+  static const String bread = "bread";
+  static const String breakfast = "breakfast";
+  static const String dessert = "dessert";
+  static const String drink = "drink";
+  static const String fingerFood = "fingerfood";
+  static const String mainCourse = "main course";
+  static const String marinade = "marinade";
+  static const String salad = "salad";
+  static const String sauce = "sauce";
+  static const String sideDish = "side dish";
+  static const String snack = "snack";
+  static const String soup = "soup";
+
+  // home types app bar
+  static const String baking = "Baking";
+  static const String burgers = "Burgers";
+  static const String chicken = "Chicken";
+  static const String desserts = "Desserts";
+  static const String duck = "Duck";
+  static const String drinks = "Drinks";
+  static const String lamb = "Lamb";
+  static const String meat = "Meat";
+  static const String mince = "Mince";
+  static const String noodles = "Noodles";
+  static const String pasta = "Pasta";
+  static const String pies = "Pies";
+  static const String pizza = "Pizza";
+  static const String pork = "Pork";
+  static const String poultry = "Poultry";
+  static const String rice = "Rice";
+  static const String salads = "Salads";
+  static const String sauces = "Sauces";
+  static const String seafood = "Seafood";
+  static const String sides = "Sides";
+  static const String sausages = "sausages";
+  static const String snacks = "Snacks";
+  static const String soups = "Soups";
+  static const String stirFry = "Stir Fry";
+  static const String turkey = "Turkey";
+  static const String vegetarian = "Vegetarian";
 }
