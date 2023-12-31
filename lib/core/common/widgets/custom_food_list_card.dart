@@ -9,6 +9,7 @@ import '../../utils/app_routes.dart';
 import '../../utils/app_styles.dart';
 import '../animation/animation.dart';
 import '../models/food_type_model.dart';
+import 'custom_loading_indicator.dart';
 import 'custom_text_widget.dart';
 
 class CustomFoodListCard extends StatelessWidget {
@@ -65,6 +66,11 @@ class CustomFoodListCard extends StatelessWidget {
                       height: constraints.maxHeight,
                       width: constraints.maxWidth * 0.35,
                       fit: BoxFit.cover,
+                      placeholder: (context, url) => const Center(
+                        child: CustomLoadingIndicator(),
+                      ),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                     ),
                   ),
                   const Gap(10),

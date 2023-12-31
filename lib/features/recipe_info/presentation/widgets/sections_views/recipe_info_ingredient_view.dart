@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../core/common/models/recipe/extended_ingredient.dart';
+import '../../../../../core/common/widgets/custom_loading_indicator.dart';
 import '../../../../../core/common/widgets/custom_text_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_strings.dart';
@@ -60,6 +61,10 @@ class RecipeInfoIngredientView extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl:
                       "https://spoonacular.com/cdn/ingredients_500x500/${ingredient.image}",
+                  placeholder: (context, url) => const Center(
+                    child: CustomLoadingIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
               const SizedBox(height: 20),

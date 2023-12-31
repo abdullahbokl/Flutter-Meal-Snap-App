@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../models/recipe/recipe_model.dart';
+import '../custom_loading_indicator.dart';
 
 class CustomSliverAppBarImage extends StatelessWidget {
   const CustomSliverAppBarImage({
@@ -27,6 +28,10 @@ class CustomSliverAppBarImage extends StatelessWidget {
             height: 285.h,
             width: double.infinity,
             fit: BoxFit.cover,
+            placeholder: (context, url) => const Center(
+              child: CustomLoadingIndicator(),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ],
       ),
