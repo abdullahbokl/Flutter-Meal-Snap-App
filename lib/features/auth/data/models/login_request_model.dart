@@ -8,8 +8,8 @@ class LoginRequestModel {
 
   Map<String, dynamic> toJson() {
     return {
-      AppStrings.apiEmail: email,
-      AppStrings.apiPassword: password,
+      AppStrings.appWriteEmail: email,
+      AppStrings.appWritePassword: password,
     };
   }
 }

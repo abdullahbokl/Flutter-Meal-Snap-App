@@ -1,13 +1,24 @@
 abstract class AppStrings {
+  // App Configurations
   static const String appName = 'MealSnap';
+
+  // .env keys
+  static const String envApiKey = 'API_KEY';
+  static const String envAppWriteProjectId = 'APPWRITE_PROJECT_ID';
+  static const String envAppWriteApiKey = 'APPWRITE_API_KEY';
 
   // Hive
   static const String favoriteBox = 'Favorite';
 
+  // shared preferences keys
+  static const String keyNameAppLanguage = 'app_language';
+  static const String prefsId = 'id';
+  static const String prefsToken = 'token';
+
   // API
   static const String apiKey = "apiKey";
 
-  // API end points
+  // API end-points
   static const String apiBaseUrl = 'https://api.spoonacular.com/';
   static const String apiRandomEndPoint = 'random';
   static const String apiRecipesEndPoint = 'recipes';
@@ -18,47 +29,22 @@ abstract class AppStrings {
   static const String apiEquipmentsEndPoint = 'equipmentWidget.json?';
   static const String apiNutritionEndPoint = 'nutritionWidget.json?';
 
-  // food types
-  static const String foodTypeBreakfast = 'breakfast';
-  static const String foodTypeLunch = 'lunch';
-  static const String foodTypeDrinks = 'drinks';
-  static const String foodTypePizza = 'pizza';
-  static const String foodTypeBurgers = 'burgers';
-  static const String foodTypeCake = 'cake';
-  static const String foodTypeRice = 'rice';
+  static const String apiCode = 'code';
+  static const String apiToken = 'token';
+  static const String apiEquipment = 'equipment';
 
-  // app write
+  // API query parameters
+  static const String query = 'query';
+  static const String number = 'number';
+
+  // API response keys
+  static const String results = 'results';
+
+  // app write API
   static const String appWriteEndPoint = "https://cloud.appwrite.io/v1";
   static const String appWriteEmail = 'email';
   static const String appWritePassword = 'password';
-
-  // Shared Preferences Keys
-  static const String keyNameAppLanguage = 'app_language';
-
-  // Api Keys
-  static const String apiId = 'id';
-  static const String apiEmail = 'email';
-  static const String apiPassword = 'password';
-  static const String apiConfirmPassword = 'confirmPassword';
-  static const String apiCode = 'code';
-  static const String apiMessage = 'message';
-  static const String apiToken = 'token';
-  static const String apiName = 'name';
-  static const String apiDescription = 'description';
-  static const String apiPrice = 'price';
-  static const String apiCategory = 'category';
-  static const String apiMealImages = 'mealImages';
-  static const String apiHowToSell = 'howToSell';
-  static const String apiEquipment = 'equipment';
-
-  // shared preferences keys
-  static const String prefsId = 'id';
-  static const String prefsToken = 'token';
-
-  // .env keys
-  static const String envApiKey = 'API_KEY';
-  static const String envAppWriteProjectId = 'APPWRITE_PROJECT_ID';
-  static const String envAppWriteApiKey = 'APPWRITE_API_KEY';
+  static const String appWriteConfirmPassword = 'confirmPassword';
 
   // sign up model
   static const String signUpModelName = 'name';
@@ -104,10 +90,23 @@ abstract class AppStrings {
   static const String searchAutoCompleteModelImage = 'image';
   static const String searchAutoCompleteModelImageType = 'imageType';
 
-  // API query parameters
-  static const String query = 'query';
-  static const String number = 'number';
+  // food types
+  static const String foodTypeBreakfast = 'breakfast';
+  static const String foodTypeLunch = 'lunch';
+  static const String foodTypeDrinks = 'drinks';
+  static const String foodTypePizza = 'pizza';
+  static const String foodTypeBurgers = 'burgers';
+  static const String foodTypeCake = 'cake';
+  static const String foodTypeRice = 'rice';
 
-  // API response keys
-  static const String results = 'results';
+  // search screen
+  static const String searchRecipesByCategories = 'Recipes by categories';
+
+  // error messages
+  static const String noDataFound = 'No data found';
+  static const String noInternetConnection = 'No internet connection';
+  static const String somethingWentWrong = 'Something went wrong';
+
+  // App General Strings
+  static const String search = 'Search';
 }

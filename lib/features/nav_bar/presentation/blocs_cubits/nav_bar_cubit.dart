@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../favorite_screen/presentation/screens/favorite_screen.dart';
+import '../../../favorite/presentation/screens/favorite_screen.dart';
 import '../../../home/presentation/screens/home_screen.dart';
 import '../../../more/presentation/screens/more_screen.dart';
 import '../../../search/presentation/screens/search_screen.dart';

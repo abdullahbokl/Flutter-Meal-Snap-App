@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meal_snap/features/search/presentation/blocs_cubits/search_cubit/search_cubit.dart';
 
 import '../../features/auth/presentation/blocs_cubits/login_cubit/login_cubit.dart';
 import '../../features/auth/presentation/screens/change_lang_screen.dart';
@@ -13,12 +14,14 @@ import '../../features/recipe_info/data/models/recipe_info_screen_arguments.dart
 import '../../features/recipe_info/presentation/screens/recipe_info_screen.dart';
 import '../../features/search/data/models/search_results_screen_arguments.dart';
 import '../../features/search/presentation/screens/search_results_screen.dart';
+import '../../features/search/presentation/screens/search_screen.dart';
 import '../common/widgets/custom_error_page.dart';
 import 'service_locator.dart';
 
 class Routes {
   // splash
-  static const String initialRoute = '/';
+  // static const String initialRoute = '/';
+  static const String initialRoute = '/a';
   static const String changeLangScreen = '/changeLangScreen';
 
   // auth
@@ -32,7 +35,9 @@ class Routes {
 
   static const String recipeInfoScreen = '/recipeInfoScreen';
   static const String searchResultsScreen = '/searchResultsScreen';
-  static const String searchScreen = '/searchScreen';
+
+  // static const String searchScreen = '/searchScreen';
+  static const String searchScreen = '/';
   static const String favoriteScreen = '/favoriteScreen';
   static const String moreScreen = '/moreScreen';
 }
@@ -80,6 +85,13 @@ class AppRoutes {
         );
 
       // search
+      case Routes.searchScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SearchCubit>(),
+            child: const SearchScreen(),
+          ),
+        );
       case Routes.searchResultsScreen:
         return MaterialPageRoute(
           builder: (_) => SearchResultsScreen(

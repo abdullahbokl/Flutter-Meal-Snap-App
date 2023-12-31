@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/common/widgets/custom_error_widget.dart';
 import '../../../../core/common/widgets/custom_loading_indicator.dart';
+import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/service_locator.dart';
 import '../../data/models/recipe_info_screen_arguments.dart';
 import '../bloc/recipe_info_bloc.dart';
@@ -21,21 +22,25 @@ class RecipeInfoScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           getIt<RecipeInfoBloc>()..add(LoadRecipeInfoEvent(id: arguments.id)),
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          body: BlocBuilder<RecipeInfoBloc, RecipeInfoState>(
-            builder: (context, state) {
-              if (state is RecipeInfoLoadingState) {
-                return const CustomLoadingIndicator();
-              } else if (state is RecipeInfoSuccessState) {
-                return RecipeInfoScreenBody(dataModel: state.dataModel);
-              } else if (state is RecipeInfoFailureState) {
-                return CustomErrorWidget(message: state.message);
-              } else {
-                return const CustomErrorWidget(message: 'Something went wrong');
-              }
-            },
+      child: MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+        child: SafeArea(
+          child: Scaffold(
+            body: BlocBuilder<RecipeInfoBloc, RecipeInfoState>(
+              builder: (context, state) {
+                if (state is RecipeInfoLoadingState) {
+                  return const CustomLoadingIndicator();
+                } else if (state is RecipeInfoSuccessState) {
+                  return RecipeInfoScreenBody(dataModel: state.dataModel);
+                } else if (state is RecipeInfoFailureState) {
+                  return CustomErrorWidget(message: state.message);
+                } else {
+                  return const CustomErrorWidget(
+                    message: AppStrings.somethingWentWrong,
+                  );
+                }
+              },
+            ),
           ),
         ),
       ),

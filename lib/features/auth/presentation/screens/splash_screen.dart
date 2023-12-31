@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/services/database_services/cache/cache_services.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_navigator.dart';
 import '../../../../core/utils/app_routes.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -35,7 +34,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: AppColors.white,
       body: SplashScreenBody(),
     );
   }

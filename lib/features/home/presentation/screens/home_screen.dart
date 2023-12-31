@@ -25,21 +25,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppBar(title: AppStrings.appName),
-      backgroundColor: Colors.white,
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          if (state is HomeLoadingState) {
-            return const Center(child: CustomLoadingIndicator());
-          } else if (state is HomeSuccessState) {
-            return HomeScreenBody(homeBodyModel: state.homeBodyModel);
-          } else if (state is HomeFailureState) {
-            return CustomErrorWidget(message: state.message);
-          } else {
-            return const CustomErrorWidget(message: "Something went wrong");
-          }
-        },
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
+        appBar: customAppBar(title: AppStrings.appName),
+        body: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state is HomeLoadingState) {
+              return const Center(child: CustomLoadingIndicator());
+            } else if (state is HomeSuccessState) {
+              return HomeScreenBody(homeBodyModel: state.homeBodyModel);
+            } else if (state is HomeFailureState) {
+              return CustomErrorWidget(message: state.message);
+            } else {
+              return const CustomErrorWidget(message: "Something went wrong");
+            }
+          },
+        ),
       ),
     );
   }

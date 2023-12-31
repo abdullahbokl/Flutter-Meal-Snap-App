@@ -15,9 +15,9 @@ class ResetPasswordModel {
 
   Map<String, dynamic> toJson() {
     return {
-      AppStrings.apiEmail: email,
-      AppStrings.apiPassword: password,
-      AppStrings.apiConfirmPassword: confirmPassword,
+      AppStrings.appWriteEmail: email,
+      AppStrings.appWritePassword: password,
+      AppStrings.appWriteConfirmPassword: confirmPassword,
       AppStrings.apiCode: code,
     };
   }

@@ -13,7 +13,7 @@ class SearchAutoCompleteModel {
 
   factory SearchAutoCompleteModel.fromJson(json) {
     return SearchAutoCompleteModel(
-      id: json[AppStrings.searchAutoCompleteModelId],
+      id: json[AppStrings.searchAutoCompleteModelId].toString(),
       name: json[AppStrings.searchAutoCompleteModelName],
       // image: json[searchAutoCompleteModelImage],
       image:

@@ -13,6 +13,7 @@ import '../../features/home/data/repositories/home_recipes_repo.dart';
 import '../../features/home/presentation/blocs_cubits/home_bloc.dart';
 import '../../features/nav_bar/presentation/blocs_cubits/nav_bar_cubit.dart';
 import '../../features/recipe_info/presentation/bloc/recipe_info_bloc.dart';
+import '../../features/search/presentation/blocs_cubits/search_cubit/search_cubit.dart';
 import '../../features/search/presentation/blocs_cubits/search_results_bloc/search_results_bloc.dart';
 import '../blocs_cubits/app_lang_cubit/app_lang_cubit.dart';
 import '../services/database_services/api/api_services.dart';
@@ -68,11 +69,11 @@ Future<void> initServiceLocator() async {
     ..registerLazySingleton<HomeRecipesRepo>(
       () => HomeRecipesRepoImpl(getIt()),
     )
-    ..registerLazySingleton<SearchRepo>(
-      () => SearchRepoImpl(getIt()),
-    )
     ..registerLazySingleton<RecipeInfoRepo>(
       () => RecipeInfoRepoImpl(getIt()),
+    )
+    ..registerLazySingleton<SearchRepo>(
+      () => SearchRepoImpl(getIt()),
     );
 
   // cubits
@@ -89,10 +90,13 @@ Future<void> initServiceLocator() async {
     ..registerLazySingleton<HomeBloc>(
       () => HomeBloc(),
     )
-    ..registerFactory<SearchResultsBloc>(
-      () => SearchResultsBloc(),
-    )
     ..registerFactory<RecipeInfoBloc>(
       () => RecipeInfoBloc(),
+    )
+    ..registerLazySingleton<SearchCubit>(
+      () => SearchCubit(),
+    )
+    ..registerFactory<SearchResultsBloc>(
+      () => SearchResultsBloc(),
     );
 }
