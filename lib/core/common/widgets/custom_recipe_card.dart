@@ -20,6 +20,7 @@ class CustomRecipeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isReadyIn = item.readyInMinutes != null;
     return InkWell(
       onTap: () {
         AppNavigator.pushNamed(
@@ -54,36 +55,35 @@ class CustomRecipeCard extends StatelessWidget {
                     height: constraints.maxHeight * 0.6,
                   ),
                 ),
+                if (!isReadyIn) const Spacer(),
                 // details
-                Flexible(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // title
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // title
+                      CustomTextWidget(
+                        text: item.name,
+                        style: AppStyles.font16SatoshiBold.copyWith(
+                          color: Colors.black,
+                          fontSize: 14,
+                        ),
+                        textAlign: TextAlign.start,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      if (isReadyIn) ...[
+                        const Spacer(),
+                        // ready in
                         CustomTextWidget(
-                          text: item.name,
+                          text: "Ready in ${item.readyInMinutes} Min",
                           style: AppStyles.font16SatoshiBold.copyWith(
-                            color: Colors.black,
                             fontSize: 14,
                           ),
-                          textAlign: TextAlign.start,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
                         ),
-                        if (item.readyInMinutes != null) ...[
-                          const Spacer(),
-                          // ready in
-                          CustomTextWidget(
-                            text: "Ready in ${item.readyInMinutes} Min",
-                            style: AppStyles.font16SatoshiBold.copyWith(
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
                       ],
-                    ),
+                    ],
                   ),
                 ),
               ],

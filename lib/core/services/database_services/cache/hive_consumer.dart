@@ -43,9 +43,23 @@ class HiveConsumer extends CacheServices {
   Future<void> removeData({
     required String key,
     required String boxName,
-  }) {
+  }) async {
     try {
-      return Hive.deleteBoxFromDisk(key);
+      return await Hive.deleteBoxFromDisk(key);
+    } catch (e) {
+      log(e.toString());
+      throw CacheExceptions(
+        'Error while removing data from hive : $e',
+      );
+    }
+  }
+
+  @override
+  Future<void> removeBox({
+    required String boxName,
+  }) async {
+    try {
+      return await Hive.deleteBoxFromDisk(boxName);
     } catch (e) {
       log(e.toString());
       throw CacheExceptions(

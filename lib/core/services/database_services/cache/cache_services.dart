@@ -15,5 +15,9 @@ abstract class CacheServices {
     required String key,
   });
 
+  dynamic removeBox({
+    required String boxName,
+  });
+
   dynamic clearData();
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:meal_snap/core/common/animation/animation.dart';
 
 import '../../../../../core/common/widgets/custom_image.dart';
 import '../../../../../core/common/widgets/custom_text_widget.dart';
@@ -34,21 +35,27 @@ class ChangeLangScreenBody extends StatelessWidget {
                 w: 120.w,
               ),
               Gap(16.h),
-              CustomTextWidget(
-                text: translate().app_appName,
-                style: AppStyles.font32TelmaW900.copyWith(
-                  color: AppColors.white,
+              DelayedDisplay(
+                child: Column(
+                  children: [
+                    CustomTextWidget(
+                      text: translate().app_appName,
+                      style: AppStyles.font32TelmaW900.copyWith(
+                        color: AppColors.white,
+                      ),
+                    ),
+                    Gap(80.h),
+                    CustomTextWidget(
+                      text: translate().authentication_pleaseChooseYourLanguage,
+                      style: AppStyles.font20SatoshiW500.copyWith(
+                        color: AppColors.white,
+                      ),
+                    ),
+                    Gap(30.h),
+                    const ChangeLangButtons(),
+                  ],
                 ),
               ),
-              Gap(80.h),
-              CustomTextWidget(
-                text: translate().authentication_pleaseChooseYourLanguage,
-                style: AppStyles.font20SatoshiW500.copyWith(
-                  color: AppColors.white,
-                ),
-              ),
-              Gap(30.h),
-              const ChangeLangButtons(),
             ],
           ),
         ),
