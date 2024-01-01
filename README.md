@@ -1,16 +1,28 @@
-# meal_snap
+# 🔥 Flutter Meal Snap App
 
-A new Flutter project.
+## ✨ Features :
 
-## Getting Started
+- MVVM Architecture.
+- Bloc State Management.
+- Spoonacular API.
+- Caching data/Offline (Hive).
+- Responsive UI.
+- Reusable Widgets.
+- Beautiful UI and Animation.
+- Saving favorite recipes.
+- Search recipes by name, ingredients, or type.
+- Nutrition information for each meal.
+- 5,000+ recipes.
+- related recipes.
+- and more...
 
-This project is a starting point for a Flutter application.
+## 📹 Video Demo : [Flutter Meal Snap App](https://drive.google.com/file/d/1CDryxG5Aqh7WWATtzZIAeGCoZ1y1zS3g/view?usp=sharing)
 
-A few resources to get you started if this is your first Flutter project:
+## 📸 Screenshots :
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src="screenshots/image1.png" width="250"> <img src="screenshots/image2.png" width="250"> <img src="screenshots/image3.png" width="250">
+<img src="screenshots/image4.png" width="250"> <img src="screenshots/image5.png" width="250"> <img src="screenshots/image6.png" width="250">
+<img src="screenshots/image7.png" width="250"> <img src="screenshots/image8.png" width="250"> <img src="screenshots/image9.png" width="250">
+<img src="screenshots/image10.png" width="250"> 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##

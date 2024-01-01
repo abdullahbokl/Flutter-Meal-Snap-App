@@ -13,26 +13,16 @@ class AppAssets {
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesLogoSvg = 'assets/images/logo_svg.svg';
   static const String mealSnap = '.env';
-  static const String screenshots2024010101h5713 =
-      'assets/screenshots/2024-01-01_01h57_13.png';
-  static const String screenshots2024010101h5730 =
-      'assets/screenshots/2024-01-01_01h57_30.png';
-  static const String screenshots2024010101h5754 =
-      'assets/screenshots/2024-01-01_01h57_54.png';
-  static const String screenshots2024010101h5816 =
-      'assets/screenshots/2024-01-01_01h58_16.png';
-  static const String screenshots2024010101h5844 =
-      'assets/screenshots/2024-01-01_01h58_44.png';
-  static const String screenshots2024010101h5905 =
-      'assets/screenshots/2024-01-01_01h59_05.png';
-  static const String screenshots2024010101h5922 =
-      'assets/screenshots/2024-01-01_01h59_22.png';
-  static const String screenshots2024010101h5943 =
-      'assets/screenshots/2024-01-01_01h59_43.png';
-  static const String screenshots2024010101h5955 =
-      'assets/screenshots/2024-01-01_01h59_55.png';
-  static const String screenshots2024010102h0013 =
-      'assets/screenshots/2024-01-01_02h00_13.png';
+  static const String screenshotsImage1 = 'assets/screenshots/image1.png';
+  static const String screenshotsImage10 = 'assets/screenshots/image10.png';
+  static const String screenshotsImage2 = 'assets/screenshots/image2.png';
+  static const String screenshotsImage3 = 'assets/screenshots/image3.png';
+  static const String screenshotsImage4 = 'assets/screenshots/image4.png';
+  static const String screenshotsImage5 = 'assets/screenshots/image5.png';
+  static const String screenshotsImage6 = 'assets/screenshots/image6.png';
+  static const String screenshotsImage7 = 'assets/screenshots/image7.png';
+  static const String screenshotsImage8 = 'assets/screenshots/image8.png';
+  static const String screenshotsImage9 = 'assets/screenshots/image9.png';
   static const String translationsAr = 'assets/translations/ar.json';
   static const String translationsEn = 'assets/translations/en.json';
 }
