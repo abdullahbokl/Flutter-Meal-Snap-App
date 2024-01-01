@@ -20,9 +20,9 @@
 
 ## 📸 Screenshots :
 
-<img src="screenshots/image1.png" width="250"> <img src="screenshots/image2.png" width="250"> <img src="screenshots/image3.png" width="250">
-<img src="screenshots/image4.png" width="250"> <img src="screenshots/image5.png" width="250"> <img src="screenshots/image6.png" width="250">
-<img src="screenshots/image7.png" width="250"> <img src="screenshots/image8.png" width="250"> <img src="screenshots/image9.png" width="250">
-<img src="screenshots/image10.png" width="250"> 
+<img src="assets/screenshots/image1.png" width="250"> <img src="assets/screenshots/image2.png" width="250"> <img src="assets/screenshots/image3.png" width="250">
+<img src="assets/screenshots/image4.png" width="250"> <img src="assets/screenshots/image5.png" width="250"> <img src="assets/screenshots/image6.png" width="250">
+<img src="assets/screenshots/image7.png" width="250"> <img src="assets/screenshots/image8.png" width="250"> <img src="assets/screenshots/image9.png" width="250">
+<img src="assets/screenshots/image10.png" width="250"> 
 
 ##
