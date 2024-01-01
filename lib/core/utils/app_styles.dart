@@ -8,13 +8,13 @@ abstract class AppStyles {
 
   // Telma
   static const TextStyle font24TelmaBold = TextStyle(
-    fontFamily: AppAssets.fontsTelma,
+    fontFamily: AppAssets.fontsTelmaMedium,
     fontSize: 24,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
   static const TextStyle font32TelmaW900 = TextStyle(
-    fontFamily: AppAssets.fontsTelma,
+    fontFamily: AppAssets.fontsTelmaMedium,
     fontSize: 32,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
@@ -22,33 +22,33 @@ abstract class AppStyles {
 
   // Satoshi
   static const TextStyle font12SatoshiW100 = TextStyle(
-    fontFamily: AppAssets.fontsSatoshi,
+    fontFamily: AppAssets.fontsSatoshiMedium,
     fontSize: 12,
     fontWeight: FontWeight.w100,
     color: AppColors.primaryColor,
   );
   static const TextStyle font16SatoshiBold = TextStyle(
-    fontFamily: AppAssets.fontsSatoshi,
+    fontFamily: AppAssets.fontsSatoshiMedium,
     fontSize: 16,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
   static const TextStyle font20SatoshiW500 = TextStyle(
-    fontFamily: AppAssets.fontsSatoshi,
+    fontFamily: AppAssets.fontsSatoshiMedium,
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
 
   static const TextStyle font24SatoshiW700 = TextStyle(
-    fontFamily: AppAssets.fontsSatoshi,
+    fontFamily: AppAssets.fontsSatoshiMedium,
     fontSize: 24,
     fontWeight: FontWeight.w700,
     color: AppColors.primaryColor,
   );
 
   static const TextStyle font32SatoshiW900 = TextStyle(
-    fontFamily: AppAssets.fontsSatoshi,
+    fontFamily: AppAssets.fontsSatoshiMedium,
     fontSize: 32,
     fontWeight: FontWeight.w900,
     color: AppColors.primaryColor,
